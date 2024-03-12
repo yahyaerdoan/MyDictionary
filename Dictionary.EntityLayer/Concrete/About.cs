@@ -1,7 +1,10 @@
-﻿namespace Dictionary.EntityLayer.Concrete
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Dictionary.EntityLayer.Concrete
 {
     public class About
     {
+        [Key]
         public int AboutId { get; set; }
         public string Detail { get; set; }
         public string Description { get; set; }
