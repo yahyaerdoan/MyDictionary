@@ -41,11 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\GenericService\IGenericService.cs" />
+    <Compile Include="Abstract\IAboutService.cs" />
+    <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IContactService.cs" />
+    <Compile Include="Abstract\IContentService.cs" />
+    <Compile Include="Abstract\IHeadService.cs" />
+    <Compile Include="Abstract\IWriterService.cs" />
+    <Compile Include="Concrete\AboutManager.cs" />
+    <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\ContactManager.cs" />
+    <Compile Include="Concrete\ContentManager.cs" />
+    <Compile Include="Concrete\HeadManager.cs" />
+    <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\Dictionary.EntityLayer\Dictionary.EntityLayer.csproj">
+      <Project>{540b9482-4d1e-4d49-a8d3-18b9eff744fc}</Project>
+      <Name>Dictionary.EntityLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
