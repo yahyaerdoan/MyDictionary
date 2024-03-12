@@ -11,7 +11,7 @@ namespace Dictionary.EntityLayer.Concrete
         public int HeadId { get; set; }
         public virtual Head Head { get; set; }
 
-        public int WriterId { get; set; }
+        public int? WriterId { get; set; }
         public virtual Writer Writer { get; set; }
     }
 }
