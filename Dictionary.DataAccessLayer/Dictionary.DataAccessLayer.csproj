@@ -51,14 +51,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IGenericRepositories\IGenericRepository.cs" />
+    <Compile Include="Abstract\IHeadDal.cs" />
+    <Compile Include="Abstract\IWriterDal.cs" />
+    <Compile Include="Concrete\AboutDal.cs" />
+    <Compile Include="Concrete\ContactDal.cs" />
+    <Compile Include="Concrete\ContentDal.cs" />
+    <Compile Include="Concrete\GenericRepositories\GenericRepository.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Concrete\CategoryDal.cs" />
+    <Compile Include="Concrete\HeadDal.cs" />
+    <Compile Include="Concrete\WriterDal.cs" />
     <Compile Include="Context\DbDictionaryContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
