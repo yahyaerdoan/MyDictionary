@@ -8,12 +8,22 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContentManager : IContentService
     {
+        public void DeleteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TAdd(Content entity)
         {
             throw new NotImplementedException();
         }
 
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Content entity)
         {
             throw new NotImplementedException();
         }

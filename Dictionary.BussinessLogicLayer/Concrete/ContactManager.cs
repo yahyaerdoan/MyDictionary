@@ -8,12 +8,22 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContactManager : IContactService
     {
+        public void DeleteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TAdd(Contact entity)
         {
             throw new NotImplementedException();
         }
 
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Contact entity)
         {
             throw new NotImplementedException();
         }

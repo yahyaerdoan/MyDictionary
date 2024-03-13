@@ -8,12 +8,22 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class HeadManager : IHeadService
     {
+        public void DeleteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TAdd(Head entity)
         {
             throw new NotImplementedException();
         }
 
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Head entity)
         {
             throw new NotImplementedException();
         }

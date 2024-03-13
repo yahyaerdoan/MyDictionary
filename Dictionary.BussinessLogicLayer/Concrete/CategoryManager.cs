@@ -1,4 +1,6 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.DataAccessLayer.Concrete;
+using Dictionary.DataAccessLayer.Concrete.GenericRepositories;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,34 +13,50 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        public void TAdd(Category entity)
+        GenericRepository<Category> _categoryDal = new GenericRepository<Category>();
+
+        public void DeleteById(int id)
         {
-            throw new NotImplementedException();
+            _categoryDal.DeleteById(id);
         }
 
-        public void TDelete(int id)
+        public void TAdd(Category entity)
         {
-            throw new NotImplementedException();
+            if (entity.Name == "" || entity.Name.Length <= 3 || entity.Name.Length >= 20 || entity.Description == "")
+            {
+                //throw 
+            }
+            else
+            {
+                _categoryDal.Add(entity);
+            }
+        }
+
+        public void TDelete(Category entity)
+        {
+            _categoryDal.Delete(entity);
         }
 
         public List<Category> TGetAllList()
         {
-            throw new NotImplementedException();
+            return _categoryDal.List();
         }
 
         public Category TGetById(int id)
         {
-            throw new NotImplementedException();
+            var values = _categoryDal.GetById(id);
+            return values;
         }
 
         public List<Category> TListByFilter(Expression<Func<Category, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _categoryDal.ListByFilter(expression);
+            return values;
         }
 
         public void TUpdate(Category entity)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(entity);
         }
     }
 }

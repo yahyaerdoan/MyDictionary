@@ -11,7 +11,9 @@ namespace Dictionary.DataAccessLayer.Abstract.IGenericRepositories
     {
         void Add(TEntity entity);
         void Delete(TEntity entity);
+        void DeleteById(int id);
         void Update(TEntity entity);
+        TEntity GetById(int id);
         List<TEntity> List();
         List<TEntity> ListByFilter(Expression<Func<TEntity, bool>> expression);
     }

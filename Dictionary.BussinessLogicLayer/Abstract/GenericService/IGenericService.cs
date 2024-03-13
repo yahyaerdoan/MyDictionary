@@ -10,7 +10,8 @@ namespace Dictionary.BussinessLogicLayer.Abstract.GenericService
     public interface IGenericService<TEntity> where TEntity : class
     {
         void TAdd(TEntity entity);
-        void TDelete(int id);
+        void TDelete(TEntity entity);
+        void DeleteById(int id);
         void TUpdate(TEntity entity);
         List<TEntity> TGetAllList();
         TEntity TGetById(int id);

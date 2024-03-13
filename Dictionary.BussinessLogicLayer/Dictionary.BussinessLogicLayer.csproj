@@ -58,6 +58,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Dictionary.DataAccessLayer\Dictionary.DataAccessLayer.csproj">
+      <Project>{5c91f6bb-47cc-45c1-9728-75a087a5e6ec}</Project>
+      <Name>Dictionary.DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dictionary.EntityLayer\Dictionary.EntityLayer.csproj">
       <Project>{540b9482-4d1e-4d49-a8d3-18b9eff744fc}</Project>
       <Name>Dictionary.EntityLayer</Name>

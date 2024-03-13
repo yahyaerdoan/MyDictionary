@@ -12,7 +12,7 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        DbDictionaryContext  _dbDictionaryContext = new DbDictionaryContext();
+        DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext();
 
         DbSet<TEntity> _dbSet;
         public GenericRepository()
@@ -32,6 +32,19 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
             _dbDictionaryContext.SaveChanges();
         }
 
+        public void DeleteById(int id)
+        {
+            var values = _dbSet.Find(id);
+            _dbSet.Remove(values);
+            _dbDictionaryContext.SaveChanges();
+        }
+
+        public TEntity GetById(int id)
+        {
+            var values = _dbSet.Find(id);
+            return values;
+        }
+
         public List<TEntity> List()
         {
             var values = _dbSet.ToList();
@@ -45,7 +58,7 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
         }
 
         public void Update(TEntity entity)
-        {            
+        {
             _dbDictionaryContext.SaveChanges();
         }
     }
