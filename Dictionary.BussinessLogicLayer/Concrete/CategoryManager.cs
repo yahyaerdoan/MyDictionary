@@ -12,8 +12,12 @@ using System.Threading.Tasks;
 namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class CategoryManager : ICategoryService
-    {
-        GenericRepository<Category> _categoryDal = new GenericRepository<Category>();
+    {        
+        ICategoryDal _categoryDal;
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
 
         public void DeleteById(int id)
         {

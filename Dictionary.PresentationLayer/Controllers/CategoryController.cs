@@ -1,5 +1,6 @@
 ﻿using Dictionary.BussinessLogicLayer.Concrete;
 using Dictionary.DataAccessLayer.Concrete.GenericRepositories;
+using Dictionary.DataAccessLayer.Context;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Dictionary.PresentationLayer.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoryManager categoryManager = new CategoryManager();
+        CategoryManager categoryManager = new CategoryManager(new CategoryDal());
         public ActionResult Index()
         {
             return View();
