@@ -8,17 +8,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContentManager : IContentService
     {
-        public void DeleteById(int id)
+        public void TDeleteById(int id)
         {
             throw new NotImplementedException();
         }
 
         public void TAdd(Content entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(int id)
         {
             throw new NotImplementedException();
         }
@@ -34,6 +29,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         }
 
         public Content TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Content TGetByIdWithFilter(Expression<Func<Content, bool>> expression)
         {
             throw new NotImplementedException();
         }

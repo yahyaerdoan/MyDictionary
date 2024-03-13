@@ -8,17 +8,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class HeadManager : IHeadService
     {
-        public void DeleteById(int id)
+        public void TDeleteById(int id)
         {
             throw new NotImplementedException();
         }
 
         public void TAdd(Head entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(int id)
         {
             throw new NotImplementedException();
         }
@@ -34,6 +29,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         }
 
         public Head TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Head TGetByIdWithFilter(Expression<Func<Head, bool>> expression)
         {
             throw new NotImplementedException();
         }

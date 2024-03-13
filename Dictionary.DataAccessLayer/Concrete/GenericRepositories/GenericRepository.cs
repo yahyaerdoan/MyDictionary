@@ -45,6 +45,12 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
             return values;
         }
 
+        public TEntity GetByIdWithFilter(Expression<Func<TEntity, bool>> expression)
+        {
+            var values = _dbSet.SingleOrDefault(expression);
+            return values;
+        }
+
         public List<TEntity> List()
         {
             var values = _dbSet.ToList();

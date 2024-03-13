@@ -11,7 +11,7 @@
         </h3>
     </div>
     <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-nowrap">
+        <table class="table table-hover text-decoration-none">
             <thead>
                 <tr>
                     <th>#</th>
@@ -27,7 +27,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.CategoryId</td>
+                        <td class="text-danger">@item.CategoryId</td>
                         <td>@item.Name</td>
                         <td>@item.Description</td>
                         <td>@item.Status</td>

@@ -8,17 +8,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContactManager : IContactService
     {
-        public void DeleteById(int id)
+        public void TDeleteById(int id)
         {
             throw new NotImplementedException();
         }
 
         public void TAdd(Contact entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(int id)
         {
             throw new NotImplementedException();
         }
@@ -34,6 +29,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         }
 
         public Contact TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Contact TGetByIdWithFilter(Expression<Func<Contact, bool>> expression)
         {
             throw new NotImplementedException();
         }

@@ -11,10 +11,11 @@ namespace Dictionary.BussinessLogicLayer.Abstract.GenericService
     {
         void TAdd(TEntity entity);
         void TDelete(TEntity entity);
-        void DeleteById(int id);
+        void TDeleteById(int id);
         void TUpdate(TEntity entity);
         List<TEntity> TGetAllList();
-        TEntity TGetById(int id);
+        TEntity TGetById(int id); 
+        TEntity TGetByIdWithFilter(Expression<Func<TEntity, bool>> expression);
         List<TEntity> TListByFilter(Expression<Func<TEntity, bool>> expression);
     }
 }

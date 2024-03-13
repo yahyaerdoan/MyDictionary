@@ -2621,6 +2621,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\CategoryAdmin\Index.cshtml" />
     <Content Include="Views\CategoryAdmin\CreateCategory.cshtml" />
+    <Content Include="Views\CategoryAdmin\UpdateCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

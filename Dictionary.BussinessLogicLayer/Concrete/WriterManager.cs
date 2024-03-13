@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.Abstract.GenericService;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,17 +9,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class WriterManager : IWriterService
     {
-        public void DeleteById(int id)
+        public void TDeleteById(int id)
         {
             throw new NotImplementedException();
         }
 
         public void TAdd(Writer entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TDelete(int id)
         {
             throw new NotImplementedException();
         }
@@ -44,6 +40,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         }
 
         public void TUpdate(Writer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Writer IGenericService<Writer>.TGetByIdWithFilter(Expression<Func<Writer, bool>> expression)
         {
             throw new NotImplementedException();
         }

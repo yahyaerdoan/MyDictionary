@@ -48,7 +48,27 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 
         public ActionResult DeleteCategory(int id)
         {
-            categoryManager.DeleteById(id);
+            //var values = categoryManager.TGetByIdWithFilter(c=> c.CategoryId == id);
+            //categoryManager.TDelete(values);
+            categoryManager.TDeleteById(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var values = categoryManager.TGetById(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCategory(Category category)
+        {
+            var values = categoryManager.TGetById(category.CategoryId);
+            categoryManager.TUpdate(category);
+            values.Name = category.Name;
+            values.Description = category.Description;
+            values.Status = category.Status;            
             return RedirectToAction("Index");
         }
     }

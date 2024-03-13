@@ -19,7 +19,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-        public void DeleteById(int id)
+        public void TDeleteById(int id)
         {
             _categoryDal.DeleteById(id);
         }
@@ -42,6 +42,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         public Category TGetById(int id)
         {
             var values = _categoryDal.GetById(id);
+            return values;
+        }
+
+        public Category TGetByIdWithFilter(Expression<Func<Category, bool>> expression)
+        {
+            var values = _categoryDal.GetByIdWithFilter(expression);
             return values;
         }
 
