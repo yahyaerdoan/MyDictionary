@@ -1,0 +1,51 @@
+﻿@model List<Dictionary.EntityLayer.Concrete.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Category List</b>
+        </h3>
+    </div>
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                    <th>Headers</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CategoryId</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Status</td>
+                        <td>
+                            <a href="/CategoryAdmin/UpdateCategory/@item.CategoryId" class="btn btn-outline-primary sm">Update</a>
+                        </td>
+                        <td>
+                            <a href="/CategoryAdmin/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger sm">Delete</a>
+                        </td>
+                        <td>
+                            <a href="/CategoryAdmin//@item.CategoryId" class="btn btn-outline-info sm">Headers</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="margin-top:1rem">
+            <a href="/CategoryAdmin/CreateCategory/" class="btn btn-outline-primary col-md-12">Create New Category</a>
+        </div>
+    </div>
+</div>

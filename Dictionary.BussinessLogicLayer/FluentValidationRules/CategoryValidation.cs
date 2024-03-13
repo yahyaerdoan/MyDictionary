@@ -14,7 +14,9 @@ namespace Dictionary.BussinessLogicLayer.FluentValidationRules
         {
             RuleFor(c => c.Name).NotEmpty().WithMessage("Can not be empty!");
             RuleFor(c => c.Name).NotEmpty().MinimumLength(3).MaximumLength(20).WithMessage("Min 3 max 20 character!");
+            RuleFor(c => c.Status).NotEmpty().WithMessage("Can not be empty!");
             RuleFor(c => c.Description).NotEmpty().WithMessage("Can not be empty!");
+           
         }
     }
 }

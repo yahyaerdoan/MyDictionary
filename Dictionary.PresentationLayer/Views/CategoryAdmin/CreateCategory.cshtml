@@ -1,0 +1,44 @@
+﻿@model Dictionary.EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "CreateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Create Category</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" action="/CategoryAdmin/CreateCategory/">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="category name" name="Name" asp-for="Name">
+                        @Html.ValidationMessage("Name", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" class="form-control" placeholder="status" name="Status">
+                        @Html.ValidationMessage("Status", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" rows="3" placeholder="description" name="Description"></textarea>
+                        @Html.ValidationMessage("Description", new {@class= "text-danger" })                       
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Create New Category</button>
+        </form>
+    </div>
+</div>
