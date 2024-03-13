@@ -1,11 +1,8 @@
 ﻿using Dictionary.BussinessLogicLayer.Concrete;
-using Dictionary.DataAccessLayer.Concrete.GenericRepositories;
+using Dictionary.BussinessLogicLayer.FluentValidationRules;
 using Dictionary.DataAccessLayer.Context;
 using Dictionary.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using FluentValidation.Results;
 using System.Web.Mvc;
 
 namespace Dictionary.PresentationLayer.Controllers
@@ -14,21 +11,39 @@ namespace Dictionary.PresentationLayer.Controllers
     {
         // GET: Category
         CategoryManager categoryManager = new CategoryManager(new CategoryDal());
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        CategoryValidation categoryValidation = new CategoryValidation();
+        
         public ActionResult GetCategoryList()
         {
             var values = categoryManager.TGetAllList();
             return View(values);
         }
 
-        public ActionResult GetCategoryListByFilter()
+        [HttpGet]
+        public ActionResult CreateCategory()
         {
-            var values = categoryManager.TListByFilter(a=> a.Status== true);
-            return View(values);
+            return View();
         }
+
+        [HttpPost]
+        public ActionResult CreateCategory(Category category)
+        {
+            ValidationResult validationResult = categoryValidation.Validate(category);
+            if (validationResult.IsValid)
+            {
+                categoryManager.TAdd(category);
+                return RedirectToAction("GetCategoryList");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+        }
+
     }
 }

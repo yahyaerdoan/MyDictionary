@@ -26,14 +26,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TAdd(Category entity)
         {
-            if (entity.Name == "" || entity.Name.Length <= 3 || entity.Name.Length >= 20 || entity.Description == "")
-            {
-                //throw 
-            }
-            else
-            {
-                _categoryDal.Add(entity);
-            }
+           _categoryDal.Add(entity);            
         }
 
         public void TDelete(Category entity)
