@@ -56,9 +56,8 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 
         public ActionResult DeleteCategory(int id)
         {
-            //var values = categoryManager.TGetByIdWithFilter(c=> c.CategoryId == id);
-            //categoryManager.TDelete(values);
-            _categoriService.TDeleteById(id);
+            var values = _categoriService.TGetByIdWithFilter(c => c.CategoryId == id);
+            _categoriService.TDelete(values);          
             return RedirectToAction("Index");
         }
 

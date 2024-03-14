@@ -30,6 +30,8 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
 
         public void Delete(TEntity entity)
         {
+            var deletedEntity = _dbDictionaryContext.Entry(entity);
+            deletedEntity.State = EntityState.Deleted;
             _dbSet.Remove(entity);
             _dbDictionaryContext.SaveChanges();
         }
