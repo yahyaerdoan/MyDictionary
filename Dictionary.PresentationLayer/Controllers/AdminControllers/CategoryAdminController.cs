@@ -71,12 +71,8 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 
         [HttpPost]
         public ActionResult UpdateCategory(Category category)
-        {
-            var values = _categoriService.TGetById(category.CategoryId);
-            _categoriService.TUpdate(category);
-            values.Name = category.Name;
-            values.Description = category.Description;
-            values.Status = category.Status;            
+        {           
+            _categoriService.TUpdate(category);                      
             return RedirectToAction("Index");
         }
     }

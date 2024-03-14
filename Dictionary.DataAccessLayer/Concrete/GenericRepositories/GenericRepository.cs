@@ -22,7 +22,9 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
 
         public void Add(TEntity entity)
         {
-            _dbSet.Add(entity);
+            var addedEntity = _dbDictionaryContext.Entry(entity);
+            addedEntity.State = EntityState.Added;
+            //_dbSet.Add(entity);
             _dbDictionaryContext.SaveChanges();
         }
 
@@ -65,6 +67,8 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
 
         public void Update(TEntity entity)
         {
+            var updatedEntity = _dbDictionaryContext.Entry(entity);
+            updatedEntity.State = EntityState.Modified;
             _dbDictionaryContext.SaveChanges();
         }
     }

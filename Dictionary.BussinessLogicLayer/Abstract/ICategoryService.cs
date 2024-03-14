@@ -10,5 +10,6 @@ namespace Dictionary.BussinessLogicLayer.Abstract
 {
     public interface ICategoryService : IGenericService<Category>
     {
+        int TGetCategoryCount();
     }
 }

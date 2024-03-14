@@ -61,5 +61,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         {
             _categoryDal.Update(entity);
         }
+
+        public int TGetCategoryCount()
+        {
+            var values = _categoryDal.GetCategoryCount();
+            return values;
+        }
     }
 }

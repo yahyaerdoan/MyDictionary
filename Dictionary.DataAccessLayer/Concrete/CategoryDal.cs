@@ -11,5 +11,11 @@ namespace Dictionary.DataAccessLayer.Context
 {
     public class CategoryDal : GenericRepository<Category>, ICategoryDal
     {
+        DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext();
+        public int GetCategoryCount()
+        {
+            var values = _dbDictionaryContext.Categories.Count();
+            return values;
+        }
     }
 }

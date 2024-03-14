@@ -10,5 +10,6 @@ namespace Dictionary.DataAccessLayer.Concrete
 {
     public interface ICategoryDal : IGenericRepository<Category>
     {
+        int GetCategoryCount();
     }
 }
