@@ -1,4 +1,5 @@
-﻿using Dictionary.BussinessLogicLayer.Concrete;
+﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.Concrete;
 using Dictionary.BussinessLogicLayer.FluentValidationRules;
 using Dictionary.DataAccessLayer.Context;
 using Dictionary.EntityLayer.Concrete;
@@ -14,11 +15,18 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
     public class CategoryAdminController : Controller
     {
         // GET: CategoryAdmin
-        CategoryManager categoryManager = new CategoryManager(new CategoryDal());
-        CategoryValidation categoryValidation = new CategoryValidation();
+        ICategoryService _categoriService;
+
+        public CategoryAdminController(ICategoryService categoriService)
+        {
+            _categoriService = categoriService;
+        }
+
+        //CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
+        CategoryValidation _categoryValidation = new CategoryValidation();
         public ActionResult Index()
         {
-            var values = categoryManager.TGetAllList();
+            var values = _categoriService.TGetAllList();
             return View(values);
         }
 
@@ -30,10 +38,10 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         [HttpPost]
         public ActionResult CreateCategory(Category category)
         {
-            ValidationResult validationResult = categoryValidation.Validate(category);
+            ValidationResult validationResult = _categoryValidation.Validate(category);
             if (validationResult.IsValid)
             {
-                categoryManager.TAdd(category);
+                _categoriService.TAdd(category);
                 return RedirectToAction("Index");
             }
             else
@@ -50,22 +58,22 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         {
             //var values = categoryManager.TGetByIdWithFilter(c=> c.CategoryId == id);
             //categoryManager.TDelete(values);
-            categoryManager.TDeleteById(id);
+            _categoriService.TDeleteById(id);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult UpdateCategory(int id)
         {
-            var values = categoryManager.TGetById(id);
+            var values = _categoriService.TGetById(id);
             return View(values);
         }
 
         [HttpPost]
         public ActionResult UpdateCategory(Category category)
         {
-            var values = categoryManager.TGetById(category.CategoryId);
-            categoryManager.TUpdate(category);
+            var values = _categoriService.TGetById(category.CategoryId);
+            _categoriService.TUpdate(category);
             values.Name = category.Name;
             values.Description = category.Description;
             values.Status = category.Status;            
