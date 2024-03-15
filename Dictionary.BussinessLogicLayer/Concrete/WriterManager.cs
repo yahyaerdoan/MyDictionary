@@ -1,5 +1,6 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
 using Dictionary.BussinessLogicLayer.Abstract.GenericService;
+using Dictionary.DataAccessLayer.Concrete;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,13 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class WriterManager : IWriterService
     {
+        private readonly IWriterDal _writerDal;
+
+        public WriterManager(IWriterDal writerDal)
+        {
+            _writerDal = writerDal;
+        }
+
         public void TDeleteById(int id)
         {
             throw new NotImplementedException();
@@ -26,7 +34,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public List<Writer> TGetAllList()
         {
-            throw new NotImplementedException();
+            return _writerDal.List();
+
         }
 
         public Writer TGetById(int id)

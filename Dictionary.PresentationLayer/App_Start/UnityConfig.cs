@@ -18,6 +18,9 @@ namespace Dictionary.PresentationLayer
             // e.g. container.RegisterType<ITestService, TestService>();           
             container.RegisterType<ICategoryDal, CategoryDal>();
             container.RegisterType<ICategoryService, CategoryManager>();
+
+            container.RegisterType<IWriterDal, WriterDal>();
+            container.RegisterType<IWriterService, WriterManager>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
