@@ -66,10 +66,18 @@
     <Compile Include="Concrete\HeadDal.cs" />
     <Compile Include="Concrete\WriterDal.cs" />
     <Compile Include="Context\DbDictionaryContext.cs" />
+    <Compile Include="Migrations\202403151759071_addAboutandTitleForWriter.cs" />
+    <Compile Include="Migrations\202403151759071_addAboutandTitleForWriter.designer.cs">
+      <DependentUpon>202403151759071_addAboutandTitleForWriter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202403151759071_addAboutandTitleForWriter.resx">
+      <DependentUpon>202403151759071_addAboutandTitleForWriter.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
