@@ -21,6 +21,10 @@ namespace Dictionary.PresentationLayer
 
             container.RegisterType<IWriterDal, WriterDal>();
             container.RegisterType<IWriterService, WriterManager>();
+
+            container.RegisterType<IHeadDal, HeadDal>();
+            container.RegisterType<IHeadService, HeadManager>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
