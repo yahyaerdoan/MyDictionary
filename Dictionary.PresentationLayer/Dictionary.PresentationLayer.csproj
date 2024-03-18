@@ -2637,6 +2637,8 @@
     <Content Include="Views\StatisticAdmin\GooglePiechart3d.cshtml" />
     <Content Include="Views\StatisticAdmin\Index.cshtml" />
     <Content Include="Views\WriterAdmin\Index.cshtml" />
+    <Content Include="Views\WriterAdmin\CreateWriter.cshtml" />
+    <Content Include="Views\WriterAdmin\UpdateWriter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

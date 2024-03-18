@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "CreateWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Create Writer</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" action="/WriterAdmin/CreateWriter/">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="first name" name="FirstName">
+                        @Html.ValidationMessage("FirstName", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="last name" name="LastName">
+                        @Html.ValidationMessage("LastName", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>About</label>
+                        <input type="text" class="form-control" placeholder="about" name="About">
+                        @Html.ValidationMessage("About", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="title" name="Title">
+                        @Html.ValidationMessage("Title", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        <input type="text" class="form-control" placeholder="e-mail" name="Email">
+                        @Html.ValidationMessage("Email", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" class="form-control" placeholder="password" name="Password">
+                        @Html.ValidationMessage("Password", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" class="form-control" placeholder="status" name="Status">
+                        @Html.ValidationMessage("Status", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Image Url</label>
+                        <input type="text" class="form-control" placeholder="image url" name="Image">
+                        @Html.ValidationMessage("Image", new { @class = "text-danger" })
+                    </div>
+                </div>             
+            </div>           
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Create New Writer</button>
+        </form>
+    </div>
+</div>
+

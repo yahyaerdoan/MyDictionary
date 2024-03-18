@@ -24,7 +24,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TAdd(Writer entity)
         {
-            throw new NotImplementedException();
+            _writerDal.Add(entity);
         }
 
         public void TDelete(Writer entity)
@@ -40,7 +40,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public Writer TGetById(int id)
         {
-            throw new NotImplementedException();
+           var values = _writerDal.GetById(id);
+            return values;
         }
 
         public List<Writer> TListByFilter(Expression<Func<Writer, bool>> expression)
@@ -50,7 +51,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TUpdate(Writer entity)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(entity);
         }
 
         Writer IGenericService<Writer>.TGetByIdWithFilter(Expression<Func<Writer, bool>> expression)
