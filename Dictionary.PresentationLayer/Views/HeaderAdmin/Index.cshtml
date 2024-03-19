@@ -31,7 +31,7 @@
                         <td class="text-danger">@item.HeadId</td>
                         <td>@item.Name</td>
                         <td>@item.Category.Name</td>
-                        <td>@item.Date</td>
+                        <td>@(((DateTime)item.Date).ToString("dd-MMMM-yyyy"))</td>
                         <td>@item.Writer.FirstName @item.Writer.LastName</td>
                         <td>
                             <a href="/HeaderAdmin/UpdateHeader/@item.HeadId" class="btn btn-outline-primary sm">Update</a>

@@ -23,6 +23,21 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             _writerService = writerService;
         }
 
+        public void GetCategoryNameForDropDownBySelectList()
+        {
+            ViewBag.CategoryName = new SelectList(_categoryService.TGetAllList(), "CategoryId", "Name");
+        }
+
+        public void GetWriterFullNameForDropDownSelectList()
+        {
+            ViewBag.WriterFullName = new SelectList(from a in _writerService.TGetAllList().ToList()
+                                                    select new
+                                                    {
+                                                        writerId = a.WriterId,
+                                                        FullName = a.FirstName + " " + a.LastName
+                                                    }, "WriterId", "FullName");
+        }
+
         public ActionResult Index()
         {
             var values = _headService.TGetAllList();
@@ -43,17 +58,6 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             _headService.TAdd(head);
             return RedirectToAction("Index");
         }
-        public void GetCategoryNameForDropDownBySelectList()
-        {            
-            ViewBag.CategoryName = new SelectList(_categoryService.TGetAllList(), "CategoryId", "Name");
-        }
-
-        public void GetWriterFullNameForDropDownSelectList()
-        {
-            ViewBag.WriterFullName = new SelectList(from a in _writerService.TGetAllList().ToList()
-                                                     select new { writerId = a.WriterId,
-                                                         FullName = a.FirstName + " " + a.LastName
-                                                     }, "WriterId", "FullName");            
-        }
+       
     }
 }
