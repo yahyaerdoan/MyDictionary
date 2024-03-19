@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.DataAccessLayer.Concrete;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,13 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContentManager : IContentService
     {
+        private readonly IContentDal _contentDal;
+
+        public ContentManager(IContentDal contentDal)
+        {
+            _contentDal = contentDal;
+        }
+
         public void TDeleteById(int id)
         {
             throw new NotImplementedException();
@@ -25,12 +33,13 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public List<Content> TGetAllList()
         {
-            throw new NotImplementedException();
+            return _contentDal.List();
         }
 
         public Content TGetById(int id)
         {
-            throw new NotImplementedException();
+            var values = _contentDal.GetById(id);
+            return values;
         }
 
         public Content TGetByIdWithFilter(Expression<Func<Content, bool>> expression)
@@ -40,7 +49,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public List<Content> TListByFilter(Expression<Func<Content, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _contentDal.ListByFilter(expression);
+            return values;
         }
 
         public void TUpdate(Content entity)

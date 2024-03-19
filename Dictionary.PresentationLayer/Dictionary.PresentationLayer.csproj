@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AdminControllers\CategoryAdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\ContentAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\HeaderAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
@@ -2643,6 +2644,7 @@
     <Content Include="Views\HeaderAdmin\Index.cshtml" />
     <Content Include="Views\HeaderAdmin\CreateHeader.cshtml" />
     <Content Include="Views\HeaderAdmin\UpdateHeader.cshtml" />
+    <Content Include="Views\ContentAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
