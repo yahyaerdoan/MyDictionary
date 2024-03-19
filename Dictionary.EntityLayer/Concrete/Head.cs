@@ -10,6 +10,7 @@ namespace Dictionary.EntityLayer.Concrete
     {
         public int HeadId { get; set; }
         public string Name { get; set; }
+        public bool Status { get; set; }
         public DateTime Date { get; set; }
 
         public int CategoryId { get; set; }
