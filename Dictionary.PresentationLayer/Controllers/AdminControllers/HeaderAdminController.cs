@@ -58,6 +58,22 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             _headService.TAdd(head);
             return RedirectToAction("Index");
         }
-       
+
+
+        [HttpGet]
+        public ActionResult UpdateHeader(int id)
+        {
+            GetCategoryNameForDropDownBySelectList();
+            GetWriterFullNameForDropDownSelectList();
+            var values = _headService.TGetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public ActionResult UpdateHeader(Head head)
+        {
+            head.Date = DateTime.Now;
+            _headService.TUpdate(head);
+            return RedirectToAction("Index");
+        }
     }
 }
