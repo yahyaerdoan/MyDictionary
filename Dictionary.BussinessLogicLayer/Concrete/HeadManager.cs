@@ -59,14 +59,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         }
 
         public void UpdateAsAFalse(Head head)
-        {
-            head.Status = false;
+        {            
             _headDal.Update(head);
         }
 
         public void UpdateAsATrue(Head head)
-        {
-            head.Status = true;
+        {           
             _headDal.Update(head);
         }
     }
