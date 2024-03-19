@@ -57,5 +57,17 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         {
             _headDal.Update(entity);
         }
+
+        public void UpdateAsAFalse(Head head)
+        {
+            head.Status = false;
+            _headDal.Update(head);
+        }
+
+        public void UpdateAsATrue(Head head)
+        {
+            head.Status = true;
+            _headDal.Update(head);
+        }
     }
 }

@@ -19,6 +19,7 @@
                     <th>Category Name</th>
                     <th>Created Date</th>
                     <th>Writer First & Last Name</th>
+                    <th>Header Status</th>
                     <th>Update</th>
                     <th>Delete</th>
                     <th>Headers</th>
@@ -33,11 +34,27 @@
                         <td>@item.Category.Name</td>
                         <td>@(((DateTime)item.Date).ToString("dd-MMMM-yyyy"))</td>
                         <td>@item.Writer.FirstName @item.Writer.LastName</td>
+                        @if (item.Status == true)
+                        {
+                            <td style="color:green">Activated</td>
+                        }
+                        else
+                        {
+                            <td style="color:red">Passiveted</td>
+                        }
+
                         <td>
                             <a href="/HeaderAdmin/UpdateHeader/@item.HeadId" class="btn btn-outline-primary sm">Update</a>
                         </td>
                         <td>
-                            <a href="/HeaderAdmin/DeleteHeader/@item.HeadId" class="btn btn-outline-danger sm">Delete</a>
+                            @if (item.Status == true)
+                            {
+                            <a href="/HeaderAdmin/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">Turn on</a>
+                            }
+                            else
+                            {
+                                <a href="/HeaderAdmin/UpdateHeaderAsATrue/@item.HeadId" class="btn btn-outline-success sm">Turn of</a>
+                            }
                         </td>
                         <td>
                             <a href="/ContentAdmin/ContentByHeader/@item.HeadId" class="btn btn-outline-info sm">Contents</a>

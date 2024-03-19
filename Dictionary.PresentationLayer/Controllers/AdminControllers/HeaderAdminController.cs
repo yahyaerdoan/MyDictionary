@@ -59,6 +59,18 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult UpdateHeaderAsAFalse(int id)
+        {            
+            var values = _headService.TGetById(id);
+            _headService.UpdateAsAFalse(values);
+            return RedirectToAction("Index");
+        }
+        public ActionResult UpdateHeaderAsATrue(int id)
+        {
+            var values = _headService.TGetById(id);
+            _headService.UpdateAsATrue(values);
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public ActionResult UpdateHeader(int id)
