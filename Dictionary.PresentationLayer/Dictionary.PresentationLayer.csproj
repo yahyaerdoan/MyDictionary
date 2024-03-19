@@ -2641,6 +2641,7 @@
     <Content Include="Views\WriterAdmin\CreateWriter.cshtml" />
     <Content Include="Views\WriterAdmin\UpdateWriter.cshtml" />
     <Content Include="Views\HeaderAdmin\Index.cshtml" />
+    <Content Include="Views\HeaderAdmin\CreateHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

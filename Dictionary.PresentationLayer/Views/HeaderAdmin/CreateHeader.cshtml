@@ -1,0 +1,41 @@
+﻿@model Dictionary.EntityLayer.Concrete.Head
+@{
+    ViewBag.Title = "CreateHeader";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Create Header</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" action="/HeaderAdmin/CreateHeader/">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Header</label>
+                        <input type="text" class="form-control" placeholder="header name" name="Name">
+                        @Html.ValidationMessage("Name", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Category Name</label>                       
+                        @Html.DropDownListFor(c => c.CategoryId, (SelectList)ViewBag.CategoryName, "select a category", new { @class = "form-group; custom-select border-1" })
+                        @Html.ValidationMessage("CategoryId", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Writer Name Surname</label>
+                        @Html.DropDownListFor(w => w.WriterId, (SelectList)ViewBag.WriterFullName, "select a writer", new { @class = "form-group; custom-select border-1" })
+                        @Html.ValidationMessage("Status", new { @class = "text-danger" })                        
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Create New Header</button>
+        </form>
+    </div>
+</div>
