@@ -2644,7 +2644,8 @@
     <Content Include="Views\HeaderAdmin\Index.cshtml" />
     <Content Include="Views\HeaderAdmin\CreateHeader.cshtml" />
     <Content Include="Views\HeaderAdmin\UpdateHeader.cshtml" />
-    <Content Include="Views\ContentAdmin\Index.cshtml" />
+    <Content Include="Views\ContentAdmin\ContentByHeader.cshtml" />
+    <Content Include="Views\ContentAdmin\ContentByCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

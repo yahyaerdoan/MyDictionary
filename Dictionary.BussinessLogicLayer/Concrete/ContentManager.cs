@@ -57,5 +57,17 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Content> TGetContentByHeaderId(int id)
+        {
+            var values = _contentDal.ListByFilter(a => a.HeadId == id);
+            return values;
+        }
+
+        public List<Content> TGetContentByCategoryId(int id)
+        {
+            var values = _contentDal.ListByFilter(a => a.Head.Category.CategoryId == id);
+            return values;
+        }
     }
 }

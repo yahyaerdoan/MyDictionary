@@ -11,15 +11,27 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
     {
         // GET: ContentAdmin
         private readonly IContentService _contentSevice;
+        private readonly ICategoryService _categoryService;
 
-        public ContentAdminController(IContentService contentSevice)
+        public ContentAdminController(IContentService contentSevice, ICategoryService categoryService)
         {
             _contentSevice = contentSevice;
+            _categoryService = categoryService;
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
-            var values = _contentSevice.TListByFilter(a=> a.ContentId == id);
+            var values = _contentSevice.TGetAllList();
+            return View(values);
+        }
+        public ActionResult ContentByHeader(int id)
+        {
+            var values = _contentSevice.TGetContentByHeaderId(id);
+            return View(values);
+        }
+        public ActionResult ContentByCategory(int id)
+        {
+            var values = _contentSevice.TGetContentByCategoryId(id);
             return View(values);
         }
     }

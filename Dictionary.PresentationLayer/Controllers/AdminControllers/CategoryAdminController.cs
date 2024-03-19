@@ -16,10 +16,12 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
     {
         // GET: CategoryAdmin
         ICategoryService _categoriService;
+        IContentService _contentService;
 
-        public CategoryAdminController(ICategoryService categoriService)
+        public CategoryAdminController(ICategoryService categoriService, IContentService contentService)
         {
             _categoriService = categoriService;
+            _contentService = contentService;
         }
 
         //CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
