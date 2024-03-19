@@ -28,6 +28,9 @@ namespace Dictionary.PresentationLayer
             container.RegisterType<IContentDal, ContentDal>();
             container.RegisterType<IContentService, ContentManager>();
 
+            container.RegisterType<IAboutDal, AboutDal>();
+            container.RegisterType<IAboutService, AboutManager>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
