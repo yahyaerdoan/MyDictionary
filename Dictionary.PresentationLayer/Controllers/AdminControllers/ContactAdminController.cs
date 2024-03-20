@@ -28,9 +28,10 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             return View();
         }
 
-        public ActionResult ReadMail()
+        public ActionResult ReadMail(int id)
         {
-            return View();
+            var values = _contactService.TGetById(id);
+            return View(values);
         }
 
         public PartialViewResult FoldersPartial()
