@@ -151,6 +151,7 @@
     <Compile Include="Controllers\AdminControllers\ContactAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\ContentAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\HeaderAdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\MessageAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -2659,6 +2660,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\MessageAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

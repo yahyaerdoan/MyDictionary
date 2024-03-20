@@ -1,5 +1,6 @@
 using Dictionary.BussinessLogicLayer.Abstract;
 using Dictionary.BussinessLogicLayer.Concrete;
+using Dictionary.DataAccessLayer.Abstract;
 using Dictionary.DataAccessLayer.Concrete;
 using Dictionary.DataAccessLayer.Context;
 using System.Web.Mvc;
@@ -33,6 +34,9 @@ namespace Dictionary.PresentationLayer
 
             container.RegisterType<IContactDal, ContactDal>();
             container.RegisterType<IContactService, ContactManager>();
+
+            container.RegisterType<IMessageDal, MessageDal>();
+            container.RegisterType<IMessageService, MessageManager>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
