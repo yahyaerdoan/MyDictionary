@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictionary.BussinessLogicLayer.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,17 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
     public class ContactAdminController : Controller
     {
         // GET: ContactAdmin
+        private readonly IContactService _contactService;
+
+        public ContactAdminController(IContactService contactService)
+        {
+            _contactService = contactService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var values = _contactService.TGetAllList();
+            return View(values);
         }
 
         public ActionResult Compose()

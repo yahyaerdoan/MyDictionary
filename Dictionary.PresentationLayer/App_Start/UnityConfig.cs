@@ -31,6 +31,9 @@ namespace Dictionary.PresentationLayer
             container.RegisterType<IAboutDal, AboutDal>();
             container.RegisterType<IAboutService, AboutManager>();
 
+            container.RegisterType<IContactDal, ContactDal>();
+            container.RegisterType<IContactService, ContactManager>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

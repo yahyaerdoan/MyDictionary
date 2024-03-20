@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.DataAccessLayer.Concrete;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,44 +9,55 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 {
     public class ContactManager : IContactService
     {
+       private readonly IContactDal _contactDal;
+
+        public ContactManager(IContactDal contactDal)
+        {
+            _contactDal = contactDal;
+        }
+
         public void TDeleteById(int id)
         {
-            throw new NotImplementedException();
+            _contactDal.DeleteById(id);
         }
 
         public void TAdd(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(entity);
         }
 
         public void TDelete(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(entity);
         }
 
         public List<Contact> TGetAllList()
         {
-            throw new NotImplementedException();
+            var values = _contactDal.List();
+            return values;
         }
 
         public Contact TGetById(int id)
         {
-            throw new NotImplementedException();
+            var values = _contactDal.GetById(id);
+            return values;
         }
 
         public Contact TGetByIdWithFilter(Expression<Func<Contact, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _contactDal.GetByIdWithFilter(expression);
+            return values;
         }
 
         public List<Contact> TListByFilter(Expression<Func<Contact, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _contactDal.ListByFilter(expression);
+            return values;
         }
 
         public void TUpdate(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(entity);
         }
     }
 }
