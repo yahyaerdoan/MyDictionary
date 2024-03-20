@@ -148,6 +148,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AdminControllers\AboutAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\CategoryAdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\ContactAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\ContentAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\HeaderAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
@@ -2650,6 +2651,9 @@
     <Content Include="Views\AboutAdmin\Index.cshtml" />
     <Content Include="Views\AboutAdmin\CreateAbout.cshtml" />
     <Content Include="Views\AboutAdmin\UpdateAbout.cshtml" />
+    <Content Include="Views\ContactAdmin\Index.cshtml" />
+    <Content Include="Views\ContactAdmin\Compose.cshtml" />
+    <Content Include="Views\ContactAdmin\ReadMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
