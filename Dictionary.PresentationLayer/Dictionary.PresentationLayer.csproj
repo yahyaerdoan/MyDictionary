@@ -2654,6 +2654,7 @@
     <Content Include="Views\ContactAdmin\Index.cshtml" />
     <Content Include="Views\ContactAdmin\Compose.cshtml" />
     <Content Include="Views\ContactAdmin\ReadMail.cshtml" />
+    <Content Include="Views\ContactAdmin\FoldersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

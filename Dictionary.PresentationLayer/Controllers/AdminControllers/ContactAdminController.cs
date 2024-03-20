@@ -23,5 +23,10 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         {
             return View();
         }
+
+        public PartialViewResult FoldersPartial()
+        {
+            return PartialView();
+        }
     }
 }
