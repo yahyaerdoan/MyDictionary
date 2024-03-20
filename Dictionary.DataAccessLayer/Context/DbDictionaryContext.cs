@@ -15,6 +15,7 @@ namespace Dictionary.DataAccessLayer.Context
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Head> Heads { get; set; }
-        public DbSet<Writer> Writers { get; set; }
+        public DbSet<Writer> Writers { get; set; }       
+        public DbSet<Message> Messages { get; set; }
     }
 }

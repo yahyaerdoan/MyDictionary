@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202403191818191_addHeaderStatus.designer.cs">
       <DependentUpon>202403191818191_addHeaderStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403202004311_addMessage.cs" />
+    <Compile Include="Migrations\202403202004311_addMessage.designer.cs">
+      <DependentUpon>202403202004311_addMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403191818191_addHeaderStatus.resx">
       <DependentUpon>202403191818191_addHeaderStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403202004311_addMessage.resx">
+      <DependentUpon>202403202004311_addMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
