@@ -2656,11 +2656,13 @@
     <Content Include="Views\ContactAdmin\Compose.cshtml" />
     <Content Include="Views\ContactAdmin\ReadMail.cshtml" />
     <Content Include="Views\ContactAdmin\FoldersPartial.cshtml" />
+    <Content Include="Views\MessageAdmin\Index.cshtml" />
+    <Content Include="Views\MessageAdmin\SentBox.cshtml" />
+    <Content Include="Views\MessageAdmin\CreateMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\MessageAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

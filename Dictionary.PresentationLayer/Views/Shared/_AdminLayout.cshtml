@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/dist/css/adminlte.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -163,7 +164,7 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        
+
                     </div>
                 </div>
             </div>
@@ -185,7 +186,15 @@
     <!-- AdminLTE -->
     <script src="~/Template/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
     <!-- OPTIONAL SCRIPTS -->
-    <script src="~/Template/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>   
+    <script src="~/Template/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
     <script src="~/Template/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
+    <script src="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote().noConflict;
+        })
+    </script>
 </body>
 </html>
