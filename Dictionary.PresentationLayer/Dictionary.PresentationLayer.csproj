@@ -2659,6 +2659,7 @@
     <Content Include="Views\MessageAdmin\Index.cshtml" />
     <Content Include="Views\MessageAdmin\SentBox.cshtml" />
     <Content Include="Views\MessageAdmin\CreateMessage.cshtml" />
+    <Content Include="Views\MessageAdmin\ReadMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

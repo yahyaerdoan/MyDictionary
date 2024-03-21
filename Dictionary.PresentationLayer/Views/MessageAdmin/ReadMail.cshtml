@@ -1,4 +1,4 @@
-﻿@model Dictionary.EntityLayer.Concrete.Contact
+﻿@model  Dictionary.EntityLayer.Concrete.Message
 @{
     ViewBag.Title = "ReadMail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -15,7 +15,7 @@
             <div class="col-md-3">
                 <a href="/MessageAdmin/Index/" class="btn btn-primary btn-block mb-3">Back to Inbox</a>
                 @Html.Action("Folderspartial", "ContactAdmin")
-            </div>           
+            </div>
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
@@ -25,16 +25,17 @@
                             <a href="/ContactAdmin/Index/" class="btn btn-tool" title="Previous"><i class="fas fa-chevron-left"></i></a>
                             <a href="/ContactAdmin/Index/" class="btn btn-tool" title="Next"><i class="fas fa-chevron-right"></i></a>
                         </div>
-                    </div>                    
-                    <div class="card-body p-0">                       
-                            <div class="mailbox-read-info">                              
-                                <h5><b>@Model.Subject</b></h5>
-                                <h6>
-                                    From: <a href="mailto:@Model.Email" target="_blank" style="color:orangered">@Model.FirstName @Model.LastName</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="mailbox-read-info">
+                            <h5><b>@Model.Subject</b></h5>
+                            <h6>
+                                From: <a href="mailto:@Model.SenderMail" target="_blank" style="color:orangered">@Model.SenderMail</a>
+                                To: <a href="mailto:@Model.ReceverMail" target="_blank" style="color:orangered">@Model.ReceverMail</a>
 
-                                    <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
-                                </h6>
-                            </div>                        
+                                    <span class="mailbox-read-time float-right">@Model.Date.ToString("dd MMM yyyy hh : mm")</span>
+                            </h6>
+                        </div>
                         <div class="mailbox-controls with-border text-center">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm" data-container="body" title="Delete">
@@ -46,15 +47,15 @@
                                 <button type="button" class="btn btn-default btn-sm" data-container="body" title="Forward">
                                     <i class="fas fa-share"></i>
                                 </button>
-                            </div>                            
+                            </div>
                             <button type="button" class="btn btn-default btn-sm" title="Print">
                                 <i class="fas fa-print"></i>
                             </button>
-                        </div>                       
+                        </div>
                         <div class="mailbox-read-message">
-                            <p>@Model.Message</p>
-                        </div>                      
-                    </div>                  
+                            <p>@Model.Content</p>
+                        </div>
+                    </div>
                     <div class="card-footer bg-white">
                         <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
                             <li>
@@ -102,7 +103,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>                    
+                    </div>
                     <div class="card-footer">
                         <div class="float-right">
                             <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Reply</button>
@@ -110,12 +111,13 @@
                         </div>
                         <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
                         <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
-                    </div>                   
-                </div>               
-            </div>           
+                    </div>
+                </div>
+            </div>
         </div>
         <div style="margin-top:1rem; margin-bottom:1rem">
             <a href="/AboutAdmin/CreateAbout/" class="btn btn-outline-primary col-md-12">Create New About</a>
         </div>
     </div>
 </div>
+

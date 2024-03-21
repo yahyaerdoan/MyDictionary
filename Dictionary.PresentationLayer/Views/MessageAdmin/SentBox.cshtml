@@ -79,13 +79,13 @@
                                                 <a href="#"><i class="fas fa-star text-warning"></i></a>
                                             </td>
                                             <td class="mailbox-name">
-                                                <a href="/ContactAdmin/ReadMail/@item.MessageId">@item.ReceverMail</a>
+                                                <a href="/MessageAdmin/ReadMail/@item.MessageId">@item.ReceverMail</a>
                                             </td>
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> - @item.Content.Substring(0, 70)...
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">5 mins ago</td>
+                                            <td class="mailbox-date">@item.Date.ToString("dd MMM yyyy hh : mm")</td>
                                         </tr>
                                     }
                                 </tbody>

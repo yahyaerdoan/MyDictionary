@@ -30,6 +30,12 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             return View(values);
         }
 
+        public ActionResult ReadMail(int id)
+        {
+            var values = _messageService.TGetById(id);
+            return View(values);
+        }
+
         [HttpGet]
         public ActionResult CreateMessage()
         {            
@@ -37,8 +43,12 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
 
         [HttpPost]
-        public ActionResult CreateMessage(Message  message)
+        [ValidateInput(false)]
+        public ActionResult CreateMessage(Message message)
         {
+            message.SenderMail = "yahyajohn@gmail.com";
+            message.Status = true;
+            message.Date = DateTime.Now;
             _messageService.TAdd(message);
             return RedirectToAction("SentBox");
         }
