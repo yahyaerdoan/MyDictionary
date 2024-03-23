@@ -55,6 +55,7 @@
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Contact.cs" />
     <Compile Include="Concrete\Content.cs" />
+    <Compile Include="Concrete\Gallery.cs" />
     <Compile Include="Concrete\Head.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Writer.cs" />

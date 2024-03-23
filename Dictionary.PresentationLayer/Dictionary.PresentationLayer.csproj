@@ -151,6 +151,7 @@
     <Compile Include="Controllers\AdminControllers\ContactAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\ContentAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\AdminControllers\GalleryAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\HeaderAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\MessageAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
@@ -2288,6 +2289,8 @@
     <Content Include="Template\colorlib-error-404-10\img\bg.jpg" />
     <Content Include="Template\colorlib-error-404-10\index.html" />
     <Content Include="Template\colorlib-error-404-10\readme.txt" />
+    <Content Include="Template\Screenshot 2024-03-11 173440.png" />
+    <Content Include="Template\Screenshot 2024-03-18 230015.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2666,6 +2669,7 @@
     <Content Include="Views\MessageAdmin\CreateMessage.cshtml" />
     <Content Include="Views\MessageAdmin\ReadMail.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\GalleryAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

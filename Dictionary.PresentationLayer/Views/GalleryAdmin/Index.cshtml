@@ -1,0 +1,42 @@
+﻿@model List<Dictionary.EntityLayer.Concrete.Gallery>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4 class="card-title">Gallery List</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-sm-2">
+
+                                            <a href="@item.Image" data-toggle="lightbox" 
+                                               data-title="@item.Title" data-gallery="gallery"  
+                                               style="height:150px; width:250px">
+                                                <img src="@item.Image" class="img-fluid mb-2" alt="white sample"  
+                                                     style="height:150px; width:250px" />
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

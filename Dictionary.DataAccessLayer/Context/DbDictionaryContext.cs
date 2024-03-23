@@ -17,5 +17,6 @@ namespace Dictionary.DataAccessLayer.Context
         public DbSet<Head> Heads { get; set; }
         public DbSet<Writer> Writers { get; set; }       
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
     }
 }

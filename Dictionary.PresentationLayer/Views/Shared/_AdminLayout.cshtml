@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title></title>
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/ekko-lightbox/ekko-lightbox.css">
     <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/dist/css/adminlte.min.css">
@@ -188,12 +190,34 @@
     <!-- OPTIONAL SCRIPTS -->
     <script src="~/Template/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
     <script src="~/Template/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
-    <script src="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>  
+    <!-- Ekko Lightbox -->
+    <script src="~/Template/AdminLTE-3.2.0/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+
+
+
     <!-- Page Script -->
     <script>
         $(function () {
             //Add text editor
             $('#compose-textarea').summernote().noConflict;
+        })
+    </script>
+
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+
+            $('.filter-container').filterizr({ gutterPixels: 3 });
+            $('.btn[data-filter]').on('click', function () {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
         })
     </script>
 </body>

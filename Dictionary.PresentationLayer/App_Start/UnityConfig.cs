@@ -38,6 +38,9 @@ namespace Dictionary.PresentationLayer
             container.RegisterType<IMessageDal, MessageDal>();
             container.RegisterType<IMessageService, MessageManager>();
 
+            container.RegisterType<IGalleryDal, GalleryDal>();
+            container.RegisterType<IGalleryService, GalleryManager>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
