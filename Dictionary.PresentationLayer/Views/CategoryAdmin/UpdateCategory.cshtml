@@ -34,7 +34,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="description" name="Description">@Model.Description</textarea>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "ckeditor", placeholder = "Content" })
                         @Html.ValidationMessage("Description", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -43,4 +43,3 @@
         </form>
     </div>
 </div>
-

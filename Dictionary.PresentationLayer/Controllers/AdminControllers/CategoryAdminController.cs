@@ -37,7 +37,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult CreateCategory(Category category)
         {
             ValidationResult validationResult = _categoryValidation.Validate(category);
@@ -70,7 +70,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             return View(values);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult UpdateCategory(Category category)
         {           
             _categoriService.TUpdate(category);                      

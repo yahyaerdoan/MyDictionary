@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Dictionary.EntityLayer.Concrete
 {
@@ -6,6 +7,7 @@ namespace Dictionary.EntityLayer.Concrete
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }
+        [AllowHtml]
         public string Description { get; set; }
         public bool Status { get; set; }
 
