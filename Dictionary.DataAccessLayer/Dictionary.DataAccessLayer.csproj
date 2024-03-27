@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IGalleryDal.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\AboutDal.cs" />
+    <Compile Include="Concrete\AdminDal.cs" />
     <Compile Include="Concrete\ContactDal.cs" />
     <Compile Include="Concrete\ContentDal.cs" />
     <Compile Include="Concrete\GalleryDal.cs" />
@@ -86,6 +88,10 @@
     <Compile Include="Migrations\202403231848288_addgallery.designer.cs">
       <DependentUpon>202403231848288_addgallery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403270026214_addAdminTable.cs" />
+    <Compile Include="Migrations\202403270026214_addAdminTable.designer.cs">
+      <DependentUpon>202403270026214_addAdminTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403231848288_addgallery.resx">
       <DependentUpon>202403231848288_addgallery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403270026214_addAdminTable.resx">
+      <DependentUpon>202403270026214_addAdminTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

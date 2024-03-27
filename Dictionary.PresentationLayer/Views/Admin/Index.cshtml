@@ -1,0 +1,66 @@
+﻿@model List<Dictionary.EntityLayer.Concrete.Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Admin List</b>
+        </h3>
+    </div>
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-decoration-none">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>User Name</th>                    
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Delete</th>                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-danger">@item.AdminId</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Password</td>
+                        
+                        <td>@item.Role</td>
+                        @if (item.Status == true)
+                        {
+                            <td style="color:green">Activated</td>
+                        }
+                        else
+                        {
+                            <td style="color:red">Passiveted</td>
+                        }
+
+                        <td>
+                            <a href="/Admin/UpdateHeader/@item.AdminId" class="btn btn-outline-primary sm">Update</a>
+                        </td>
+                        <td>
+                            @if (item.Status == true)
+                            {
+                                <a href="/Admin/UpdateAdminAsAFalse/@item.AdminId" class="btn btn-outline-danger sm">Turn on</a>
+                            }
+                            else
+                            {
+                                <a href="/Admin/UpdateAdminAsATrue/@item.AdminId" class="btn btn-outline-success sm">Turn of</a>
+                            }
+                        </td>                      
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="margin-top:1rem">
+            <a href="/Admin/CreateAdmin/" class="btn btn-outline-primary col-md-12">Create New Admin</a>
+        </div>
+    </div>
+</div>
+

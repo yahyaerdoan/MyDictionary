@@ -41,6 +41,9 @@ namespace Dictionary.PresentationLayer
             container.RegisterType<IGalleryDal, GalleryDal>();
             container.RegisterType<IGalleryService, GalleryManager>();
 
+            container.RegisterType<IAdminDal, AdminDal>();
+            container.RegisterType<IAdminService, AdminManager>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

@@ -3,7 +3,7 @@ using Dictionary.EntityLayer.Concrete;
 
 namespace Dictionary.BussinessLogicLayer.Abstract
 {
-	public interface IAboutService : IGenericService<About>
+	public interface IAdminService : IGenericService<Admin>
     {
     }
 }

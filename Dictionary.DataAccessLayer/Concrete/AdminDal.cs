@@ -4,7 +4,7 @@ using Dictionary.EntityLayer.Concrete;
 
 namespace Dictionary.DataAccessLayer.Context
 {
-	public class AboutDal : GenericRepository<About>, IAboutDal
+	public class AdminDal : GenericRepository<Admin>, IAdminDal
     {
     }
 }

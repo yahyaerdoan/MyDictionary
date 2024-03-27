@@ -18,5 +18,6 @@ namespace Dictionary.DataAccessLayer.Context
         public DbSet<Writer> Writers { get; set; }       
         public DbSet<Message> Messages { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }

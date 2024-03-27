@@ -3,7 +3,7 @@ using Dictionary.EntityLayer.Concrete;
 
 namespace Dictionary.DataAccessLayer.Concrete
 {
-	public interface IAboutDal : IGenericRepository<About>
+	public interface IAdminDal : IGenericRepository<Admin>
     {
     }
 }
