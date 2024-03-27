@@ -17,7 +17,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         // GET: CategoryAdmin
         ICategoryService _categoriService;
         IContentService _contentService;
-
+        
         public CategoryAdminController(ICategoryService categoriService, IContentService contentService)
         {
             _categoriService = categoriService;
@@ -26,6 +26,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 
         //CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
         CategoryValidation _categoryValidation = new CategoryValidation();
+        [Authorize]
         public ActionResult Index()
         {
             var values = _categoriService.TGetAllList();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 {
@@ -30,6 +31,8 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
             var values = _adminService.TGetByIdWithFilter(a => a.UserName == admin.UserName && a.Password == admin.Password);
 			if (values != null)
 			{
+                FormsAuthentication.SetAuthCookie(values.UserName, false);
+                Session["UserName"] = values.UserName;
                 return RedirectToAction("Index", "CategoryAdmin");
 			}
 			else
