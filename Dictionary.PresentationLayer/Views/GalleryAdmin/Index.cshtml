@@ -12,9 +12,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card card-primary">
+                        <div class="card card">
                             <div class="card-header">
-                                <h4 class="card-title">Gallery List</h4>
+                                <h4 class="card-title"><b>Gallery List</b></h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -28,23 +28,20 @@
                                                 <img src="@item.Image" class="img-fluid mb-2" alt="white sample"
                                                      style="height:150px; width:250px" />
                                             </a>
-                                            <div class="card-footer">
-                                                <div class="text" >
-                                                    <a href="/GalleryAdmin/CreateGallery/" class="btn btn-sm  btn-outline-primary" style="margin-inline-end:1rem">
-                                                        Add
-                                                    </a>
-                                                    <a href="/GalleryAdmin/UpdateGallery/@item.GalleryId" class="btn btn-sm  btn-outline-success" style="margin-inline-end:1rem">
-                                                        Update
-                                                    </a>
-                                                    <a href="/GalleryAdmin/DeleteGallery/@item.GalleryId" class="btn btn-sm btn-outline-danger">
-                                                        Delete
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
 
+                                            <div class="text">
+                                                <a href="/GalleryAdmin/UpdateGallery/@item.GalleryId" class="btn btn-sm  btn-outline-success" style="margin-inline-end:1.50rem">
+                                                    Update
+                                                </a>
+                                                <a href="/GalleryAdmin/DeleteGallery/@item.GalleryId" class="btn btn-sm btn-outline-danger">Delete</a>
+                                            </div>
+
+                                        </div>
                                     }
                                 </div>
+                                <a href="/GalleryAdmin/CreateGallery/" class="btn btn-sm  btn-outline-primary col-md-12" style="margin-inline-end:1rem">
+                                    Create New Gallery
+                                </a>
                             </div>
                         </div>
                     </div>

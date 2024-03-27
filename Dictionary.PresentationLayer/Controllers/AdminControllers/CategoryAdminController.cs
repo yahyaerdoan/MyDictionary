@@ -34,6 +34,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "A")]
         public ActionResult CreateCategory()
         {
             return View();
