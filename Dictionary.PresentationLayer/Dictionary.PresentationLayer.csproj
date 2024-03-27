@@ -158,6 +158,8 @@
     <Compile Include="Controllers\AdminControllers\MessageAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
+    <Compile Include="Controllers\WriterControllers\MyHeaderController.cs" />
+    <Compile Include="Controllers\WriterControllers\WriterProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2649,7 +2651,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -3022,10 +3023,14 @@
     <Content Include="Views\GalleryAdmin\UpdateGallery.cshtml" />
     <Content Include="Views\LogInAdmin\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_WriterPanelLayout.cshtml" />
+    <Content Include="Views\WriterProfile\Index.cshtml" />
+    <Content Include="Views\MyHeader\Index.cshtml" />
+    <Content Include="Views\MyHeader\CreateHeader.cshtml" />
+    <Content Include="Views\MyHeader\UpdateHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\WriterControllers\" />
     <Folder Include="Models\" />
     <Folder Include="Template\Images\" />
   </ItemGroup>

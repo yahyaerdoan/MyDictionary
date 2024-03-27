@@ -1,0 +1,36 @@
+﻿@model Dictionary.EntityLayer.Concrete.Head
+@{
+    ViewBag.Title = "UpdateHeader";
+    Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Update My Header</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" action="/MyHeader/UpdateHeader/">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" placeholder="header id" name="HeadId" value="@Model.HeadId">
+                        <label>Header</label>
+                        <input type="text" class="form-control" placeholder="header name" name="Name" value="@Model.Name">
+                        @Html.ValidationMessage("Name", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        @Html.DropDownListFor(c => c.CategoryId, (SelectList)ViewBag.CategoryName, "select a category", new { @class = "form-group; custom-select border-1" })
+                        @Html.ValidationMessage("CategoryId", new { @class = "text-danger" })
+                    </div>
+                </div>              
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Update New Header</button>
+        </form>
+    </div>
+</div>
+

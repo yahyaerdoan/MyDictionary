@@ -45,12 +45,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public Head TGetByIdWithFilter(Expression<Func<Head, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _headDal.GetByIdWithFilter(expression);
         }
 
         public List<Head> TListByFilter(Expression<Func<Head, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _headDal.ListByFilter(expression);
         }
 
         public void TUpdate(Head entity)
