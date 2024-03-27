@@ -46,7 +46,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
 		public Admin TGetByIdWithFilter(Expression<Func<Admin, bool>> expression)
 		{
-			throw new NotImplementedException();
+			return _adminDal.GetByIdWithFilter(expression);
 		}
 
 		public List<Admin> TListByFilter(Expression<Func<Admin, bool>> expression)

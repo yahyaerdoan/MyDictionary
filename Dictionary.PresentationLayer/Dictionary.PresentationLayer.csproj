@@ -154,6 +154,7 @@
     <Compile Include="Controllers\AdminControllers\ErrorPageController.cs" />
     <Compile Include="Controllers\AdminControllers\GalleryAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\HeaderAdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\LogInAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\MessageAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
@@ -3021,6 +3022,7 @@
     <Content Include="Views\GalleryAdmin\Index.cshtml" />
     <Content Include="Views\GalleryAdmin\CreateGallery.cshtml" />
     <Content Include="Views\GalleryAdmin\UpdateGallery.cshtml" />
+    <Content Include="Views\LogInAdmin\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
