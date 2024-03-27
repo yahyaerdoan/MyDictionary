@@ -21,7 +21,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TAdd(Gallery entity)
         {
-            throw new NotImplementedException();
+            _galleryDal.Add(entity);
         }
 
         public void TDelete(Gallery entity)
@@ -42,7 +42,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public Gallery TGetById(int id)
         {
-            throw new NotImplementedException();
+            var values = _galleryDal.GetById(id);
+            return values;
         }
 
         public Gallery TGetByIdWithFilter(Expression<Func<Gallery, bool>> expression)
@@ -57,7 +58,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TUpdate(Gallery entity)
         {
-            throw new NotImplementedException();
+            _galleryDal.Update(entity);
         }
     }
 }

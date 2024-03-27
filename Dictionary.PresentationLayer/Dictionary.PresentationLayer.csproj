@@ -3018,10 +3018,13 @@
     <Content Include="Views\MessageAdmin\ReadMail.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\GalleryAdmin\Index.cshtml" />
+    <Content Include="Views\GalleryAdmin\CreateGallery.cshtml" />
+    <Content Include="Views\GalleryAdmin\UpdateGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Template\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -20,15 +20,29 @@
                                 <div class="row">
                                     @foreach (var item in Model)
                                     {
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-2" style="margin-bottom:2rem">
 
-                                            <a href="@item.Image" data-toggle="lightbox" 
-                                               data-title="@item.Title" data-gallery="gallery"  
+                                            <a href="@item.Image" data-toggle="lightbox"
+                                               data-title="@item.Title" data-gallery="gallery"
                                                style="height:150px; width:250px">
-                                                <img src="@item.Image" class="img-fluid mb-2" alt="white sample"  
+                                                <img src="@item.Image" class="img-fluid mb-2" alt="white sample"
                                                      style="height:150px; width:250px" />
                                             </a>
+                                            <div class="card-footer">
+                                                <div class="text" >
+                                                    <a href="/GalleryAdmin/CreateGallery/" class="btn btn-sm  btn-outline-primary" style="margin-inline-end:1rem">
+                                                        Add
+                                                    </a>
+                                                    <a href="/GalleryAdmin/UpdateGallery/@item.GalleryId" class="btn btn-sm  btn-outline-success" style="margin-inline-end:1rem">
+                                                        Update
+                                                    </a>
+                                                    <a href="/GalleryAdmin/DeleteGallery/@item.GalleryId" class="btn btn-sm btn-outline-danger">
+                                                        Delete
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     }
                                 </div>
                             </div>

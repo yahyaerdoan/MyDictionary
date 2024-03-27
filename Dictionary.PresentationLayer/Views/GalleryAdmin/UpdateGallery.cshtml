@@ -1,0 +1,42 @@
+﻿@model Dictionary.EntityLayer.Concrete.Gallery 
+@{
+    ViewBag.Title = "UpdateGallery";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Update Gallery</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" enctype="multipart/form-data" action="/GalleryAdmin/UpdateGallery/">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" placeholder="title" name="GalleryId" value="@Model.GalleryId">
+                        <label>Title</label>
+                        <input type="text" class="form-control" placeholder="title" name="Title" value="@Model.Title">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" class="form-control" placeholder="image" name="Image" value="@Model.Image">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea type="text" rows="6" class="form-control" placeholder="description" name="Description">@Model.Description</textarea>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Update New Gallery</button>
+        </form>
+    </div>
+</div>
+
