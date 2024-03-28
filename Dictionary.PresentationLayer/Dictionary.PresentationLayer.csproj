@@ -159,6 +159,7 @@
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
     <Compile Include="Controllers\WriterControllers\MyHeaderController.cs" />
+    <Compile Include="Controllers\WriterControllers\MyMessageController.cs" />
     <Compile Include="Controllers\WriterControllers\WriterProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3028,6 +3029,11 @@
     <Content Include="Views\MyHeader\Index.cshtml" />
     <Content Include="Views\MyHeader\CreateHeader.cshtml" />
     <Content Include="Views\MyHeader\UpdateHeader.cshtml" />
+    <Content Include="Views\MyMessage\InBox.cshtml" />
+    <Content Include="Views\MyMessage\FoldersPartial.cshtml" />
+    <Content Include="Views\MyMessage\SentBox.cshtml" />
+    <Content Include="Views\MyMessage\ReadMail.cshtml" />
+    <Content Include="Views\MyMessage\CreateMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

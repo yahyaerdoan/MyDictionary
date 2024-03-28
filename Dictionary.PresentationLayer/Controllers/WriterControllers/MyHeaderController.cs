@@ -45,6 +45,14 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult UpdateHeaderAsAFalse(int id)
+        {
+            var values = _headService.TGetById(id);
+            values.Status = false;
+            _headService.UpdateAsAFalse(values);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public ActionResult UpdateHeader(int id)
         {

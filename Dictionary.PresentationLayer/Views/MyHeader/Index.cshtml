@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
 }
 
-
 <div class="container-fluid">
     <div class="card-header">
         <h3 class="card-title">
@@ -47,16 +46,19 @@
                         <td>
                             <a href="/MyHeader/UpdateHeader/@item.HeadId" class="btn btn-outline-primary sm">Update</a>
                         </td>
+                        <!--#region for status-->
                         <td>
                             @if (item.Status == true)
                             {
-                                <a href="/HeaderAdmin/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">Turn on</a>
+                                <a href="/MyHeader/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">On</a>
                             }
                             else
                             {
-                                <a href="/HeaderAdmin/UpdateHeaderAsATrue/@item.HeadId" class="btn btn-outline-success sm">Turn of</a>
+                                <button class="btn btn-outline-success" type="button" data-target="#exampleModalToggle" data-toggle="modal"> Off</button>
                             }
                         </td>
+                        <!--#endregion-->
+
                         <td>
                             <a href="/ContentAdmin/ContentByHeader/@item.HeadId" class="btn btn-outline-info sm">Contents</a>
                         </td>
@@ -70,3 +72,21 @@
     </div>
 </div>
 
+<!--#region for status-->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel" style="color:crimson">Notice</h1>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                See your the admin for updating this header.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--#endregion-->
