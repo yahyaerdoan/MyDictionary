@@ -7,20 +7,25 @@ using System.Web.Mvc;
 
 namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 {
-    public class MyContentController : Controller
-    {
-        private readonly IContentService _contentService;
+	public class MyContentController : Controller
+	{
+		private readonly IContentService _contentService;
+		private readonly IWriterService _writerService;
 
-		public MyContentController(IContentService contentService)
+		public MyContentController(IContentService contentService, IWriterService writerService)
 		{
 			_contentService = contentService;
+			_writerService = writerService;
 		}
 
 		// GET: MyContent
-		public ActionResult Index()
-        {
-            var values = _contentService.TListByFilter(a => a.WriterId == 7);
-            return View(values);
-        }
-    }
+		public ActionResult Index(string sessionForEMail)
+		{
+			sessionForEMail = (string)Session["Email"];
+			var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+			var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
+			var values = _contentService.TListByFilter(a => a.WriterId == matchedEmailAndWriterId);
+			return View(values);
+		}
+	}
 }

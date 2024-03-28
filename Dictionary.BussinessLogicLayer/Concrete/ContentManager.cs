@@ -44,7 +44,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public Content TGetByIdWithFilter(Expression<Func<Content, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _contentDal.GetByIdWithFilter(expression);
+            return values;
         }
 
         public List<Content> TListByFilter(Expression<Func<Content, bool>> expression)

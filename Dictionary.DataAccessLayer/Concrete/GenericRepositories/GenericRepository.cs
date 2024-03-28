@@ -51,7 +51,7 @@ namespace Dictionary.DataAccessLayer.Concrete.GenericRepositories
 
         public TEntity GetByIdWithFilter(Expression<Func<TEntity, bool>> expression)
         {
-            var values = _dbSet.SingleOrDefault(expression);
+            var values = _dbSet.FirstOrDefault(expression);
             return values;
         }
 
