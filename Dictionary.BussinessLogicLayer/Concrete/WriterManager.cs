@@ -56,7 +56,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         Writer IGenericService<Writer>.TGetByIdWithFilter(Expression<Func<Writer, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _writerDal.GetByIdWithFilter(expression);
+            return values;
         }
     }
 }
