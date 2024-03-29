@@ -23,9 +23,13 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         {
             ViewBag.CategoryName = new SelectList(_categoryService.TGetAllList(), "CategoryId", "Name");
         }
-        public ActionResult Index()
-        {            
-            var values = _headService.TListByFilter(a=> a.WriterId == 7);
+
+        public ActionResult Index(string sessionForEMail)
+        {
+            sessionForEMail = (string)Session["Email"];
+            var matchedSessionAndEMail = _headService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+            var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
+            var values = _headService.TListByFilter(a=> a.WriterId == matchedEmailAndWriterId);
             return View(values);
         }
 
@@ -38,7 +42,10 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 		[HttpPost]
         public ActionResult CreateHeader(Head head)
         {
-            head.WriterId = 7;
+            string sessionForEMail = (string)Session["Email"];
+            var matchedSessionAndEMail = _headService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+            var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
+            head.WriterId = matchedEmailAndWriterId;
             head.Date = DateTime.Now;
             head.Status = true;
             _headService.TAdd(head);
@@ -63,11 +70,14 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [HttpPost]
         public ActionResult UpdateHeader(Head head)
         {
-            head.WriterId = 7;
+            string sessionForEMail = (string)Session["Email"];
+            var matchedSessionAndEMail = _headService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+            var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
+            head.WriterId = matchedEmailAndWriterId;
             head.Date = DateTime.Now;
             head.Status = true;
             _headService.TUpdate(head);
             return RedirectToAction("Index");
-        }
+        }      
     }
 }
