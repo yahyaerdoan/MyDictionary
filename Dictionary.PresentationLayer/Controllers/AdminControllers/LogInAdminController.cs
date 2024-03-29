@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 {
+    [AllowAnonymous]
     public class LogInAdminController : Controller
     {
         // GET: LogInAdmin

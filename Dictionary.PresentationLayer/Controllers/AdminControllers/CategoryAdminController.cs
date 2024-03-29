@@ -25,8 +25,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
 
         //CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
-        CategoryValidation _categoryValidation = new CategoryValidation();
-        [Authorize]
+        CategoryValidation _categoryValidation = new CategoryValidation();       
         public ActionResult Index()
         {
             var values = _categoriService.TGetAllList();

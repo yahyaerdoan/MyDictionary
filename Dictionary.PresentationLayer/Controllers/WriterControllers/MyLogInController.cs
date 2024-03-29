@@ -9,6 +9,7 @@ using System.Web.Security;
 
 namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 {
+    [AllowAnonymous]
     public class MyLogInController : Controller
     {
         private readonly IWriterService _writerService;
