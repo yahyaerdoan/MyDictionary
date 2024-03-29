@@ -1,0 +1,81 @@
+﻿@model List<Dictionary.EntityLayer.Concrete.Head>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <aside class="main-sidebar sidebar-dark-success elevation-4">
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/Template/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Yahya John Erdogan</a>
+                    </div>
+                </div>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        @foreach (var item in Model)
+                        {                          
+                            <li class="nav-item has-treeview">
+                                <a href="/Header/ContentByHeader/@item.HeadId" class="nav-link">
+                                    <i class="nav-icon fas fa-dot-circle"></i>
+                                    <p>
+                                        @item.Name
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                      @Html.Action("ContentByHeader","Header")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/Template/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Template/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/Template/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+    <script src="~/Template/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
+    <script src="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+</body>
+</html>

@@ -24,9 +24,9 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             ViewBag.CategoryName = new SelectList(_categoryService.TGetAllList(), "CategoryId", "Name");
         }
 
-        public ActionResult Index(string sessionForEMail)
+        public ActionResult Index()
         {
-            sessionForEMail = (string)Session["Email"];
+            string sessionForEMail = (string)Session["Email"];
             var matchedSessionAndEMail = _headService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             var values = _headService.TListByFilter(a=> a.WriterId == matchedEmailAndWriterId);

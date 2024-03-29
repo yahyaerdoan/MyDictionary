@@ -1,0 +1,47 @@
+﻿@{ string color = ""; }
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>My Content List</b>
+        </h3>
+    </div>
+    <div class="card-body table-responsive p-0">
+        <div class="tab-pane" id="timeline">
+            <div class="timeline timeline-inverse">
+                @foreach (var item in Model)
+                {
+                    if (item.ContentId % 2 == 0)
+                    {
+                        color = "bg-success";
+                    }
+                    else
+                    {
+                        color = "bg-fuchsia";
+                    }
+                    <div class="time-label">
+                        <span class="@color">
+                            @(((DateTime)item.Date).ToString("dd MMM yyyy"))
+                        </span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope @color"></i>
+                        <div class="timeline-item">
+                            <span class="time" style="color:blue"><h6><b>@item.Writer.Title</b></h6></span>
+
+                            <h3 class="timeline-header"><a style="color:blue"><b>@item.Writer.FirstName @item.Writer.LastName</b></a></h3>
+                            <div class="timeline-body">
+                                <div class="title"> <b>@item.Head.Category.Name</b></div>
+                                <div class="title"> <b class="text-red">@item.Head.Name</b></div>
+                                @item.Purview
+                            </div>
+                            <div class="timeline-footer">
+                                <a href="/MyContent/UpdateContent/@item.ContentId" class="btn btn-primary btn-sm">Update</a>
+                                <a href="/MyContent/DeleteContent/@item.ContentId" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>       
+    </div>
+</div>

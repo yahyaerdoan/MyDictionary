@@ -158,6 +158,7 @@
     <Compile Include="Controllers\AdminControllers\MessageAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\StatisticAdminController.cs" />
     <Compile Include="Controllers\AdminControllers\WriterAdminController.cs" />
+    <Compile Include="Controllers\DisplayController\HeaderController.cs" />
     <Compile Include="Controllers\WriterControllers\MyContentController.cs" />
     <Compile Include="Controllers\WriterControllers\MyHeaderController.cs" />
     <Compile Include="Controllers\WriterControllers\MyLogInController.cs" />
@@ -3153,6 +3154,8 @@
     <Content Include="Template\login-form-for-writer-20\scss\bootstrap\_variables.scss" />
     <Content Include="Template\login-form-for-writer-20\scss\style.scss" />
     <Content Include="Views\MyLogIn\Index.cshtml" />
+    <Content Include="Views\Header\HeaderList.cshtml" />
+    <Content Include="Views\Header\ContentByHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
