@@ -22,7 +22,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 		public ActionResult Index(string sessionForEMail)
 		{
 			sessionForEMail = (string)Session["Email"];
-			var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+			var matchedSessionAndEMail = _contentService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
 			var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
 			var values = _contentService.TListByFilter(a => a.WriterId == matchedEmailAndWriterId);
 			return View(values);
