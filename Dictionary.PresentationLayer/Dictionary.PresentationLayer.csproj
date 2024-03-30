@@ -163,7 +163,7 @@
     <Compile Include="Controllers\WriterControllers\MyHeaderController.cs" />
     <Compile Include="Controllers\WriterControllers\MyLogInController.cs" />
     <Compile Include="Controllers\WriterControllers\MyMessageController.cs" />
-    <Compile Include="Controllers\WriterControllers\WriterProfileController.cs" />
+    <Compile Include="Controllers\WriterControllers\MyProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3044,7 +3044,7 @@
     <Content Include="Views\LogInAdmin\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_WriterPanelLayout.cshtml" />
-    <Content Include="Views\WriterProfile\Index.cshtml" />
+    <Content Include="Views\MyProfile\Index.cshtml" />
     <Content Include="Views\MyHeader\Index.cshtml" />
     <Content Include="Views\MyHeader\CreateHeader.cshtml" />
     <Content Include="Views\MyHeader\UpdateHeader.cshtml" />
@@ -3157,6 +3157,9 @@
     <Content Include="Views\Header\HeaderList.cshtml" />
     <Content Include="Views\Header\ContentByHeader.cshtml" />
     <Content Include="Views\Shared\_DisplayWindowLayout.cshtml" />
+    <Content Include="Views\MyHeader\AllHeader.cshtml" />
+    <Content Include="Views\MyContent\CreateContent.cshtml" />
+    <Content Include="Views\MyContent\UpdateContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

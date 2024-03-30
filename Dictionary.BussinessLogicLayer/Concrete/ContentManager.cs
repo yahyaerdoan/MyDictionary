@@ -23,7 +23,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TAdd(Content entity)
         {
-            throw new NotImplementedException();
+            _contentDal.Add(entity);
         }
 
         public void TDelete(Content entity)
@@ -56,7 +56,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public void TUpdate(Content entity)
         {
-            throw new NotImplementedException();
+            _contentDal.Update(entity);
         }
 
         public List<Content> TGetContentByHeaderId(int id)

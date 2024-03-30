@@ -1,0 +1,36 @@
+﻿@model Dictionary.EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "UpdateContent";
+    Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Update Content</b>
+        </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" action="/MyContent/UpdateContent/">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" placeholder="header id" name="ContentId" value="@Model.ContentId">
+                        <input type="hidden" class="form-control" placeholder="header id" name="HeadId" value="@Model.HeadId">
+                        <label class="text-red">@Model.Head.Name</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>New Entry For Header</label>
+                        <textarea type="text" rows="24" class="ckeditor" placeholder="new entry for header" name="Purview">@Model.Purview</textarea>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Create New Content</button>
+        </form>
+    </div>
+</div>
+

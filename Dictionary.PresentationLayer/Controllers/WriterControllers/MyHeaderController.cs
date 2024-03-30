@@ -33,6 +33,12 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             return View(values);
         }
 
+        public ActionResult AllHeader()
+        {
+            var values = _headService.TGetAllList();
+            return View(values);
+        }
+
         [HttpGet]
         public ActionResult CreateHeader()
         {

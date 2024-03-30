@@ -1,0 +1,56 @@
+﻿@model List<Dictionary.EntityLayer.Concrete.Head>
+@{
+    ViewBag.Title = "AllHeader";
+    Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>All Header List</b>
+        </h3>
+    </div>
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-decoration-none">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Header</th>
+                    <th>Category Name</th>
+                    <th>Created Date</th>
+                    <th>Writer First & Last Name</th>
+                    <th>Header Status</th>
+                    <th>See The Content</th>
+                    <th>New Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-danger">@item.HeadId</td>
+                        <td><b>@item.Name</b></td>
+                        <td>@item.Category.Name</td>
+                        <td>@(((DateTime)item.Date).ToString("dd MMMM yyyy"))</td>
+                        <td>@item.Writer.FirstName @item.Writer.LastName</td>
+                        @if (item.Status == true)
+                        {
+                            <td style="color:green">Activated</td>
+                        }
+                        else
+                        {
+                            <td style="color:red">Passiveted</td>
+                        }
+                        <td>
+                            <a href="/Header/HeaderList/@item.HeadId" class="btn btn-outline-primary sm">See Header Content</a>
+                        </td>
+                        <td>
+                            <a href="/MyContent/CreateContent/@item.HeadId" class="btn btn-outline-info sm">New Content For This</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

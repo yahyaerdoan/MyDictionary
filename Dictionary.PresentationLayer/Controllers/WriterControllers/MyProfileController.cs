@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 {
-    public class WriterProfileController : Controller
+    public class MyProfileController : Controller
     {
         // GET: WriterProfile
         public ActionResult Index()
