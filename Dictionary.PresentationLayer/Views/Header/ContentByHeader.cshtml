@@ -1,9 +1,24 @@
-﻿@{ string color = ""; }
+﻿@model List<Dictionary.EntityLayer.Concrete.Content>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+@{ string color = ""; }
 <div class="container-fluid">
-    <div class="card-header">
-        <h3 class="card-title">
-            <b>My Content List</b>
-        </h3>
+    <div>
+        <div class="card-header">
+            <h3 class="card-title">
+                <b>My Content List</b>
+            </h3>
+        </div>
     </div>
     <div class="card-body table-responsive p-0">
         <div class="tab-pane" id="timeline">
@@ -34,14 +49,12 @@
                                 <div class="title"> <b class="text-red">@item.Head.Name</b></div>
                                 @item.Purview
                             </div>
-                            <div class="timeline-footer">
-                                <a href="/MyContent/UpdateContent/@item.ContentId" class="btn btn-primary btn-sm">Update</a>
-                                <a href="/MyContent/DeleteContent/@item.ContentId" class="btn btn-danger btn-sm">Delete</a>
+                            <div class="timeline-footer">                               
                             </div>
                         </div>
                     </div>
                 }
             </div>
-        </div>       
+        </div>
     </div>
 </div>

@@ -1,5 +1,4 @@
-﻿@model List<Dictionary.EntityLayer.Concrete.Head>
-@{
+﻿@{
     Layout = null;
 }
 
@@ -31,17 +30,6 @@
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        @foreach (var item in Model)
-                        {
-                            <li class="nav-item has-treeview">
-                                <a href="/Header/HeaderList/@item.HeadId" class="nav-link">
-                                    <i class="nav-icon fas fa-dot-circle"></i>
-                                    <p>
-                                        @item.Name
-                                    </p>
-                                </a>
-                            </li>
-                        }
 
                     </ul>
                 </nav>
@@ -58,7 +46,8 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        @Html.Action("ContentByHeader", "Header")                       
+                       
+                        @RenderBody()
                     </div>
                 </div>
             </div>

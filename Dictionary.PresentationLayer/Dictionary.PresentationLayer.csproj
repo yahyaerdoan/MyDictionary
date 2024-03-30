@@ -3156,6 +3156,7 @@
     <Content Include="Views\MyLogIn\Index.cshtml" />
     <Content Include="Views\Header\HeaderList.cshtml" />
     <Content Include="Views\Header\ContentByHeader.cshtml" />
+    <Content Include="Views\Shared\_DisplayWindowLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

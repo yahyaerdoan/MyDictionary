@@ -20,15 +20,15 @@ namespace Dictionary.PresentationLayer.Controllers.DisplayController
 
 		// GET: Header
 		public ActionResult HeaderList()
-        {
-           var values = _headService.TGetAllList();
-            return View(values);
-        }
+		{
+			var values = _headService.TGetAllList();
+			return View(values);
+		}
 
-        public PartialViewResult ContentByHeader()
-        {
-            var values = _contentService.TGetAllList();
-            return PartialView(values);
-        }
+		public PartialViewResult ContentByHeader(int id = 0)
+		{
+			var values = _contentService.TGetContentByHeaderId(id);
+			return PartialView(values);
+		}
     }
 }
