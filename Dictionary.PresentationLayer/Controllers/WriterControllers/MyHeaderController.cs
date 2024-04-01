@@ -1,5 +1,6 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
 using Dictionary.EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,10 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             return View(values);
         }
 
-        public ActionResult AllHeader()
-        {
-            var values = _headService.TGetAllList();
+        public ActionResult AllHeader(int pageIndex = 1)
+        {           
+            int PageSize = 10;
+            var values = _headService.TGetAllList().ToPagedList(pageIndex, PageSize);
             return View(values);
         }
 

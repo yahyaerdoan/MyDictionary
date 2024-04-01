@@ -1,4 +1,6 @@
-﻿@model List<Dictionary.EntityLayer.Concrete.Head>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Dictionary.EntityLayer.Concrete.Head>
 @{
     ViewBag.Title = "AllHeader";
     Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
@@ -51,6 +53,7 @@
                     </tr>
                 }
             </tbody>
-        </table>
+        </table>        
+        @Html.PagedListPager((IPagedList)Model, pageIndex => Url.Action("AllHeader", new { pageIndex }))
     </div>
 </div>
