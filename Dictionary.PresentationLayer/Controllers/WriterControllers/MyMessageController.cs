@@ -25,13 +25,15 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         }
         public ActionResult InBox()
         {
-            var values = _messageService.TListByFilter(a => a.ReceverMail == "smithjohnson@gmail.com");
+            string sessionForEMail = (string)Session["Email"];
+            var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);
             return View(values);
         }
 
         public ActionResult SentBox()
         {
-            var values = _messageService.TListByFilter(a => a.SenderMail == "smithjohnson@gmail.com");
+            string sessionForEMail = (string)Session["Email"];
+            var values = _messageService.TListByFilter(a => a.SenderMail == sessionForEMail);
             return View(values);
         }
 
@@ -51,7 +53,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [ValidateInput(false)]
         public ActionResult CreateMessage(Message message)
         {
-            message.SenderMail = "smithjohnson@gmail.com";
+            string sessionForEMail = (string)Session["Email"];
+            message.SenderMail = sessionForEMail;
             message.Status = true;
             message.Date = DateTime.Now;
             _messageService.TAdd(message);

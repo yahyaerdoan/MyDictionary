@@ -1,0 +1,29 @@
+﻿@model Dictionary.EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    @Html.Action("MyProfilePartial", "MyWriter")                   
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+                    @Html.Action("MyAboutMePartial", "MyWriter")
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                @Html.Action("MyAtsPartial", "MyWriter")                
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
