@@ -12,18 +12,20 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 	{
 		private readonly IContentService _contentService;
 		private readonly IHeadService _headService;
+		private readonly IWriterService _writerService;
 
-		public MyContentController(IContentService contentService, IHeadService headService)
+		public MyContentController(IContentService contentService, IHeadService headService, IWriterService writerService)
 		{
 			_contentService = contentService;
 			_headService = headService;
+			_writerService = writerService;
 		}
 
 		// GET: MyContent
 		public ActionResult Index(string sessionForEMail)
 		{
 			sessionForEMail = (string)Session["Email"];
-			var matchedSessionAndEMail = _contentService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+			var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
 			var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
 			var values = _contentService.TListByFilter(a => a.WriterId == matchedEmailAndWriterId);
 			return View(values);
@@ -40,7 +42,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 		public ActionResult CreateContent(Content content)
 		{
 			string sessionForEMail = (string)Session["Email"];
-			var matchedSessionAndEMail = _contentService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+			var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
 			var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
 			content.WriterId = matchedEmailAndWriterId;
 			content.Date = DateTime.Now;
@@ -58,7 +60,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 		public ActionResult UpdateContent(Content content)
 		{
 			string sessionForEMail = (string)Session["Email"];
-			var matchedSessionAndEMail = _contentService.TGetByIdWithFilter(a => a.Writer.Email == sessionForEMail);
+			var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
 			var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
 			content.WriterId = matchedEmailAndWriterId;
 			content.Date = DateTime.Now;
