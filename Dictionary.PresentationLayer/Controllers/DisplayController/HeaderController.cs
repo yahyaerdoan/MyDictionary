@@ -26,10 +26,19 @@ namespace Dictionary.PresentationLayer.Controllers.DisplayController
 			return View(values);
 		}
 
-		public PartialViewResult ContentByHeader(int id = 0)
+		public PartialViewResult ContentByHeader(int ? id)
 		{
-			var values = _contentService.TGetContentByHeaderId(id);
-			return PartialView(values);
+			int content = id ?? 0;
+			if (content != 0 && content!= null)
+			{
+				var values = _contentService.TGetContentByHeaderId(content);
+				return PartialView(values);
+			}
+			else
+			{
+				var values = _contentService.TGetAllList();
+				return PartialView(values);
+			}			
 		}
     }
 }

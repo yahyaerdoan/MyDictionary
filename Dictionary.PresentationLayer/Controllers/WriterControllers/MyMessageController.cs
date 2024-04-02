@@ -11,15 +11,16 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
     public class MyMessageController : Controller
     {
         private readonly IMessageService _messageService;
+        private readonly IWriterService _writerService;
 
-		public MyMessageController(IMessageService messageService)
+		public MyMessageController(IMessageService messageService, IWriterService writerService)
 		{
 			_messageService = messageService;
+			_writerService = writerService;
 		}
 
-
-        // GET: MyMessage
-        public PartialViewResult FoldersPartial()
+		// GET: MyMessage
+		public PartialViewResult FoldersPartial()
         {
             return PartialView();
         }
