@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Dictionary.PresentationLayer.Controllers.DisplayController
 {
+	[AllowAnonymous]
     public class HeaderController : Controller
     {
         private readonly IHeadService _headService;

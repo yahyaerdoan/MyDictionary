@@ -41,5 +41,12 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
                 return View("hata");
             }           
         }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("HeaderList", "Header");
+        }
     }
 }
