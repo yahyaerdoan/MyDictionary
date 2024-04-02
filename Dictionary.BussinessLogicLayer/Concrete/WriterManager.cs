@@ -46,7 +46,8 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public List<Writer> TListByFilter(Expression<Func<Writer, bool>> expression)
         {
-            throw new NotImplementedException();
+            var values = _writerDal.ListByFilter(expression);
+            return values;
         }
 
         public void TUpdate(Writer entity)
