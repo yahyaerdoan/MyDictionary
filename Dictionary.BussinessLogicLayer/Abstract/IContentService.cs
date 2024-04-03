@@ -8,5 +8,6 @@ namespace Dictionary.BussinessLogicLayer.Abstract
     {
         List<Content> TGetContentByHeaderId(int id);
         List<Content> TGetContentByCategoryId(int id);
+        List<Content> TGetContentBySearch(string search);
     }
 }

@@ -1,15 +1,18 @@
-﻿<nav class="navbar navbar-expand navbar-default navbar-light">
+﻿@model List<Dictionary.EntityLayer.Concrete.Content>
+﻿@using System.Text.RegularExpressions
+
+<nav class="navbar navbar-expand navbar-light" style="background-color:lavender">
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <a class="nav-link" data-widget="navbar-search" href="/Header/HeaderList/SearchPartial/" role="button">
                 <i class="fas fa-search"></i>
             </a>
             <div class="navbar-search-block">
-                <form class="form-inline">
+                <form class="form-inline" method="post" action="/Header/HeaderList/SearchPartial/">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
@@ -24,12 +27,76 @@
         </li>
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
+            <a class="nav-link" href="/MyLogIn/Index/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                 </svg>
                 <span class="badge badge-danger navbar-badge"></span>
-            </a>            
-        </li>      
+            </a>
+        </li>
     </ul>
 </nav>
+
+@{ string dynamicTitle = ""; }
+@{ string color = ""; }
+@foreach (var fotTitle in Model)
+{
+    <div class="container-fluid">
+        @if (dynamicTitle != null)
+        {
+            <div>
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <b>Searched Content</b>
+                    </h3>
+                </div>
+            </div>
+        }
+        <div class="card-body table-responsive p-0">
+            <div class="tab-pane" id="timeline">
+                <div class="timeline timeline-inverse">
+                    @foreach (var item in Model)
+                    {
+                        if (item.ContentId % 2 == 0)
+                        {
+                            color = "bg-success";
+                        }
+                        else
+                        {
+                            color = "bg-fuchsia";
+                        }
+                        <div class="time-label">
+                            <span class="@color">
+                                @(((DateTime)item.Date).ToString("dd MMM yyyy"))
+                            </span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope @color"></i>
+                            <div class="timeline-item">
+                                <span class="time" style="color:blue">
+                                    <h6><b>@item.Writer.Title</b></h6>
+                                </span>
+                                <h3 class="timeline-header"><a style="color:blue"><b>@item.Writer.FirstName @item.Writer.LastName</b></a></h3>
+                                <div class="timeline-body">
+                                    <div class="title"> <b>@item.Head.Category.Name</b></div>
+                                    <div class="title"> <b class="text-red">@item.Head.Name</b></div>
+                                    @helper StripHTML(string input)
+                                    {
+                                        if (!string.IsNullOrEmpty(input))
+                                        {
+                                            input = Regex.Replace(input, "<.*?>", String.Empty);
+                                            <span>@input</span>
+                                        }
+                                    }
+                                    @Html.Raw(item.Purview)
+                                </div>
+                                <div class="timeline-footer">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

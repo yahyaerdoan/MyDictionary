@@ -41,9 +41,11 @@ namespace Dictionary.PresentationLayer.Controllers.DisplayController
 			}			
 		}
 
-		public PartialViewResult SearchPartial()
+		public PartialViewResult SearchPartial(string search)
         {
-			return PartialView();
+			var values = _contentService.TGetContentBySearch(search);
+			ViewData["DynamicTitle"] = values;
+			return PartialView(values);
         }
     }
 }

@@ -70,5 +70,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             var values = _contentDal.ListByFilter(a => a.Head.Category.CategoryId == id);
             return values;
         }
+
+        public List<Content> TGetContentBySearch(string search)
+        {
+            var values = _contentDal.ListByFilter(s => s.Purview.Contains(search));
+            return values;
+        }
     }
 }
