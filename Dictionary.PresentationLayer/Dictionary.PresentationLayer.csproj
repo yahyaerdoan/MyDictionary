@@ -3171,6 +3171,7 @@
     <Content Include="Views\MyWriter\MyAboutMePartial.cshtml" />
     <Content Include="Views\MyWriter\MyAtsPartial.cshtml" />
     <Content Include="Views\MyWriter\MyAtSettingPartial.cshtml" />
+    <Content Include="Views\Header\SearchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

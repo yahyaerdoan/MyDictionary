@@ -40,5 +40,10 @@ namespace Dictionary.PresentationLayer.Controllers.DisplayController
 				return PartialView(values);
 			}			
 		}
+
+		public PartialViewResult SearchPartial()
+        {
+			return PartialView();
+        }
     }
 }
