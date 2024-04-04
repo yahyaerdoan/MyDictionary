@@ -61,10 +61,10 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             return values;
         }
 
-        public List<Writer> TGetFullName(string fullName)
-        {
-            var values = _writerDal.List();
+		public string TGetWriterInfoByReceverMail(string fullName)
+		{
+            var values = _writerDal.GetWriterInfoByReceverMail(fullName);
             return values;
-        }
-    }
+		}
+	}
 }

@@ -11,5 +11,7 @@ namespace Dictionary.DataAccessLayer.Abstract
 {
     public interface IMessageDal : IGenericRepository<Message>
     {
+        string GetMessageInfoByReceverMail(string fullName);
+
     }
 }

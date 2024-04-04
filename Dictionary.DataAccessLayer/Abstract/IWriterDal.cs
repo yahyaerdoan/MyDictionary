@@ -5,5 +5,6 @@ namespace Dictionary.DataAccessLayer.Concrete
 {
     public interface IWriterDal : IGenericRepository<Writer>
     {
+        string GetWriterInfoByReceverMail(string fullName);
     }
 }

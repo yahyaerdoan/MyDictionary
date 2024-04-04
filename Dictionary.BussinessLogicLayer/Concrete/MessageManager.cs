@@ -52,18 +52,6 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             return values;
         }
 
-        public List<Message> TGetFullNameByFilter(Expression<Func<Message, bool>> expression)
-        {
-           var values =   _messageDal.ListByFilter(expression);
-            return values;
-        }
-
-        public List<Message> TGetFullName(string fullName)
-        {
-            var values = _messageDal.List();
-            return values;
-        }
-
         public List<Message> TListByFilter(Expression<Func<Message, bool>> expression)
         {
             var values = _messageDal.ListByFilter(expression);
@@ -74,5 +62,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
         {
             _messageDal.Update(entity);
         }
-    }
+
+		public string TGetMessageInfoByReceverMail(string fullName)
+		{
+            var values = _messageDal.GetMessageInfoByReceverMail(fullName);
+            return values;
+		}
+	}
 }

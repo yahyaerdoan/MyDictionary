@@ -27,19 +27,11 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         public ActionResult InBox(string fullName)
         {
             string sessionForEMail = (string)Session["Email"];
-
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
-            var senderFullName = _messageService.TGetFullName(fullName).Where(x=> x.ReceverMail == matchedSessionAndEMail.Email).Select(x=> x.SenderMail);
-            ViewBag.a = senderFullName;
-            var pp = _writerService.TGetFullName(fullName).Where(w => w.Email == senderFullName.ToString()).Select(w => w.FirstName);
-            ViewBag.c = pp;
-      
-
-
-
-
+            var takeReceverMail = _messageService.TGetMessageInfoByReceverMail(matchedSessionAndEMail.Email);
+            var receverFullName = _writerService.TGetWriterInfoByReceverMail(takeReceverMail);
+            ViewBag.a = receverFullName;
             var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);
-
             return View(values);
         }
 

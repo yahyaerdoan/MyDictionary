@@ -11,7 +11,13 @@ using System.Threading.Tasks;
 
 namespace Dictionary.DataAccessLayer.Concrete
 {
-    public class MessageDal : GenericRepository<Message>, IMessageDal
-    {
-    }
+	public class MessageDal : GenericRepository<Message>, IMessageDal
+	{
+		DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext();
+		public string GetMessageInfoByReceverMail(string fullName)
+		{
+			var values = _dbDictionaryContext.Messages.Where(x => x.ReceverMail == fullName).Select(y => y.SenderMail).FirstOrDefault();
+			return values;
+		}
+	}
 }
