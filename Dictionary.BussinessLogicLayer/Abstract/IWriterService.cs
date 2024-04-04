@@ -6,6 +6,7 @@ namespace Dictionary.BussinessLogicLayer.Abstract
 {
     public interface IWriterService : IGenericService<Writer>
     {
-        string TGetWriterInfoByReceverMail(string fullName);
+        string TGetWriterInfoByReceverMail(string receverName);
+        string TGetWriterInfoBySenderMail(string senderName);
     }
 }

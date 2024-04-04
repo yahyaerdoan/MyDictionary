@@ -66,5 +66,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             var values = _writerDal.GetWriterInfoByReceverMail(fullName);
             return values;
 		}
+
+		public string TGetWriterInfoBySenderMail(string senderName)
+		{
+			var values = _writerDal.GetWriterInfoBySenderMail(senderName);
+            return values;
+		}
 	}
 }

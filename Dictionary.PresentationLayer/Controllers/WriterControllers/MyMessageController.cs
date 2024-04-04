@@ -24,13 +24,14 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         {
             return PartialView();
         }
-        public ActionResult InBox(string fullName)
+        public ActionResult InBox()
         {
             string sessionForEMail = (string)Session["Email"];
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
-            var takeReceverMail = _messageService.TGetMessageInfoByReceverMail(matchedSessionAndEMail.Email);
+            var takeReceverMail = _messageService.TGetMessageInfoByReceverMail(matchedSessionAndEMail.Email).ToString();
+
             var receverFullName = _writerService.TGetWriterInfoByReceverMail(takeReceverMail);
-            ViewBag.a = receverFullName;
+            ViewBag.receverFullName = receverFullName;
             var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);
             return View(values);
         }
@@ -38,6 +39,10 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         public ActionResult SentBox()
         {
             string sessionForEMail = (string)Session["Email"];
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var takeSenderMail = _messageService.TGetMessageInfoBySenderMail(matchedSessionAndEMail.Email);
+            var senderFullName = _writerService.TGetWriterInfoBySenderMail(takeSenderMail.ToString());
+            ViewBag.senderFullName = senderFullName;
             var values = _messageService.TListByFilter(a => a.SenderMail == sessionForEMail);
             return View(values);
         }

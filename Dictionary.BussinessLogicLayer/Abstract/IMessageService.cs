@@ -11,6 +11,7 @@ namespace Dictionary.BussinessLogicLayer.Abstract
 {
     public interface IMessageService : IGenericService<Message>
     {
-        string TGetMessageInfoByReceverMail(string fullName);
+        string TGetMessageInfoByReceverMail(string receverName);
+        string TGetMessageInfoBySenderMail(string senderName);
     }
 }

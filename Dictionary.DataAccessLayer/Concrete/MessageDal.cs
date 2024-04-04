@@ -14,9 +14,15 @@ namespace Dictionary.DataAccessLayer.Concrete
 	public class MessageDal : GenericRepository<Message>, IMessageDal
 	{
 		DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext();
-		public string GetMessageInfoByReceverMail(string fullName)
+		public string GetMessageInfoByReceverMail(string receverName)
 		{
-			var values = _dbDictionaryContext.Messages.Where(x => x.ReceverMail == fullName).Select(y => y.SenderMail).FirstOrDefault();
+			var values = _dbDictionaryContext.Messages.Where(x => x.ReceverMail == receverName).Select(y => y.SenderMail).FirstOrDefault();
+			return values;
+		}
+
+		public string GetMessageInfoBySenderMail(string senderName)
+		{
+			var values = _dbDictionaryContext.Messages.Where(x => x.SenderMail == senderName).Select(y => y.ReceverMail).FirstOrDefault();
 			return values;
 		}
 	}
