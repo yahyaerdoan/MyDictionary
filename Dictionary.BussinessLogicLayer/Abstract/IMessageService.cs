@@ -12,6 +12,7 @@ namespace Dictionary.BussinessLogicLayer.Abstract
     public interface IMessageService : IGenericService<Message>
     {
         List<Message> TGetFullNameByFilter(Expression<Func<Message, bool>> expression);
+        List<Message> TGetFullName(string fullName);
 
     }
 }

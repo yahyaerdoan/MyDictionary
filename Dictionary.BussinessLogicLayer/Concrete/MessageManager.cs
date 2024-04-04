@@ -58,6 +58,12 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             return values;
         }
 
+        public List<Message> TGetFullName(string fullName)
+        {
+            var values = _messageDal.List();
+            return values;
+        }
+
         public List<Message> TListByFilter(Expression<Func<Message, bool>> expression)
         {
             var values = _messageDal.ListByFilter(expression);

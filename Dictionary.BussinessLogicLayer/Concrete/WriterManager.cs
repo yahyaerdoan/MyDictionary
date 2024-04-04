@@ -60,5 +60,11 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             var values = _writerDal.GetByIdWithFilter(expression);
             return values;
         }
+
+        public List<Writer> TGetFullName(string fullName)
+        {
+            var values = _writerDal.List();
+            return values;
+        }
     }
 }
