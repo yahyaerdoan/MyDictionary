@@ -54,7 +54,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
         public List<Message> TGetFullNameByFilter(Expression<Func<Message, bool>> expression)
         {
-           var values =   _messageDal.GetFullNameByFilter(expression);
+           var values =   _messageDal.ListByFilter(expression);
             return values;
         }
 

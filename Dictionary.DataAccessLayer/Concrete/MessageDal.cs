@@ -13,21 +13,5 @@ namespace Dictionary.DataAccessLayer.Concrete
 {
     public class MessageDal : GenericRepository<Message>, IMessageDal
     {
-        public List<Message> GetFullNameByFilter(Expression<Func<Message, bool>> expression)
-        {
-            using (DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext())
-            {
-                var result = from message in _dbDictionaryContext.Messages
-                             join writer in _dbDictionaryContext.Writers
-                             on message.SenderMail equals writer.Email
-                             select new Message
-                             {
-                                 SenderMail = writer.Email,
-                                 ReceverMail = writer.Email
-
-                             };
-                return result.Where(expression).ToList();
-            }
-        }
     }
 }

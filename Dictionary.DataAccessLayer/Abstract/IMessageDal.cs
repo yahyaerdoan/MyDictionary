@@ -11,7 +11,5 @@ namespace Dictionary.DataAccessLayer.Abstract
 {
     public interface IMessageDal : IGenericRepository<Message>
     {
-        List<Message> GetFullNameByFilter(Expression<Func<Message, bool>> expression);
-
     }
 }
