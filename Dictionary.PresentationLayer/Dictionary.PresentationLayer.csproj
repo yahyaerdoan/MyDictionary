@@ -169,6 +169,7 @@
     <Compile Include="Controllers\WriterControllers\MyHeaderController.cs" />
     <Compile Include="Controllers\WriterControllers\MyLogInController.cs" />
     <Compile Include="Controllers\WriterControllers\MyMessageController.cs" />
+    <Compile Include="Controllers\WriterControllers\MySideBarController.cs" />
     <Compile Include="Controllers\WriterControllers\MyWriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3163,7 +3164,6 @@
     <Content Include="Views\MyLogIn\Index.cshtml" />
     <Content Include="Views\Header\HeaderList.cshtml" />
     <Content Include="Views\Header\ContentByHeader.cshtml" />
-    <Content Include="Views\Shared\_DisplayWindowLayout.cshtml" />
     <Content Include="Views\MyHeader\AllHeader.cshtml" />
     <Content Include="Views\MyContent\CreateContent.cshtml" />
     <Content Include="Views\MyContent\UpdateContent.cshtml" />
@@ -3172,6 +3172,7 @@
     <Content Include="Views\MyWriter\MyAtsPartial.cshtml" />
     <Content Include="Views\MyWriter\MyAtSettingPartial.cshtml" />
     <Content Include="Views\Header\SearchPartial.cshtml" />
+    <Content Include="Views\MySideBar\IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

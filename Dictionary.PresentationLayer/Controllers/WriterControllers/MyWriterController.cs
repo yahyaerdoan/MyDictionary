@@ -38,8 +38,12 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         }
 
         public PartialViewResult MyAtsPartial()
-        {            
-            return PartialView();
+        {
+            string sessionForEMail = (string)Session["Email"];
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
+            var values = _writerService.TGetById(matchedEmailAndWriterId);
+            return PartialView(values);
         }
 
         [HttpGet]
