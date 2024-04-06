@@ -28,10 +28,9 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         {
             string sessionForEMail = (string)Session["Email"];
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
-            var takeReceverMail = _messageService.TGetMessageInfoByReceverMail(matchedSessionAndEMail.Email).ToString();
-
-            var receverFullName = _writerService.TGetWriterInfoByReceverMail(takeReceverMail);
-            ViewBag.receverFullName = receverFullName;
+            var receverFullName = _messageService.TGetMessageInfoByReceverMail(x=> x.SenderMail == matchedSessionAndEMail.Email)
+                .Select(y=> y.FirstName + " " + y.LastName).FirstOrDefault();
+            ViewBag.receverFullName =  receverFullName;
             var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);
             return View(values);
         }

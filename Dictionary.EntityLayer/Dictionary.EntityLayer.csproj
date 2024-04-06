@@ -81,6 +81,7 @@
     <Compile Include="Concrete\Head.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Writer.cs" />
+    <Compile Include="Dto\WriterMessageDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

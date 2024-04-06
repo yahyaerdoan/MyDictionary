@@ -1,5 +1,6 @@
 ﻿using Dictionary.DataAccessLayer.Abstract.IGenericRepositories;
 using Dictionary.EntityLayer.Concrete;
+using Dictionary.EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Dictionary.DataAccessLayer.Abstract
 {
     public interface IMessageDal : IGenericRepository<Message>
     {
-        string GetMessageInfoByReceverMail(string receverName);
+        List<WriterMessageDto> GetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression);
         string GetMessageInfoBySenderMail(string senderName);
     }
 }

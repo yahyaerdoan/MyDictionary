@@ -1,6 +1,7 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
 using Dictionary.DataAccessLayer.Abstract;
 using Dictionary.EntityLayer.Concrete;
+using Dictionary.EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,16 +64,16 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             _messageDal.Update(entity);
         }
 
-		public string TGetMessageInfoByReceverMail(string receverName)
-		{
-            var values = _messageDal.GetMessageInfoByReceverMail(receverName);
-            return values;
-		}
-
 		public string TGetMessageInfoBySenderMail(string senderName)
 		{
             var values = _messageDal.GetMessageInfoBySenderMail(senderName);
             return values;
 		}
-	}
+
+        public List<WriterMessageDto> TGetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression)
+        {
+            var values = _messageDal.GetMessageInfoByReceverMail(expression);
+            return values;
+        }
+    }
 }

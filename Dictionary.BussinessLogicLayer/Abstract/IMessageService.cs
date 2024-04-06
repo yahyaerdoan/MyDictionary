@@ -1,5 +1,6 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract.GenericService;
 using Dictionary.EntityLayer.Concrete;
+using Dictionary.EntityLayer.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Dictionary.BussinessLogicLayer.Abstract
 {
     public interface IMessageService : IGenericService<Message>
     {
-        string TGetMessageInfoByReceverMail(string receverName);
+        List<WriterMessageDto> TGetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression);
         string TGetMessageInfoBySenderMail(string senderName);
     }
 }
