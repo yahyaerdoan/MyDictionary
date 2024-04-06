@@ -80,12 +80,13 @@
                                             </td>
                                             <td class="mailbox-name">
                                                 <a href="/MyMessage/ReadMail/@item.MessageId" class="text-black">
+
                                                     @foreach (var writerFullName in @ViewBag.receverFullName)
                                                     {
-                                                        @writerFullName;
+                                                        @writerFullName
                                                     }
 
-                                                   
+                                                    @*@ViewBag.receverFullName*@
 
                                                 </a>                                             
                                             </td>

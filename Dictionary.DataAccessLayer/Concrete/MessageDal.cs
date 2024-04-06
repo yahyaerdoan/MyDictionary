@@ -14,8 +14,6 @@ namespace Dictionary.DataAccessLayer.Concrete
 {
 	public class MessageDal : GenericRepository<Message>, IMessageDal
 	{
-		DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext();
-
 		public List<WriterMessageDto> GetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression)
         {
             using (DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext())

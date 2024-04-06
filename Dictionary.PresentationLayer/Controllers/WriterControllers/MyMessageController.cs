@@ -31,8 +31,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == matchedSessionAndEMail.Email)
             .Select(y => y.FirstName + " " + y.LastName).ToList();
             ViewBag.receverFullName = receverFullName;
-           
-            var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);           
+
+            var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);         
             return View(values);
         }
 
@@ -42,7 +42,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
 
             var senderFullName = _messageService.TGetMessageInfoByReceverMail(x => x.SenderMail == matchedSessionAndEMail.Email)
-                .Select(y => y.FirstName + " " + y.LastName).FirstOrDefault();
+                .Select(y => y.FirstName + " " + y.LastName).ToList();
 
             ViewBag.senderFullName = senderFullName;
 
