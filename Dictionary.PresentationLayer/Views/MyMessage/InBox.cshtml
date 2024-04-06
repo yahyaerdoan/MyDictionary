@@ -79,7 +79,15 @@
                                                 <a href="#"><i class="fas fa-star text-warning"></i></a>
                                             </td>
                                             <td class="mailbox-name">
-                                                <a href="/MyMessage/ReadMail/@item.MessageId"class="text-black">@ViewBag.receverFullName</a>                                             
+                                                <a href="/MyMessage/ReadMail/@item.MessageId" class="text-black">
+                                                    @foreach (var writerFullName in @ViewBag.receverFullName)
+                                                    {
+                                                        @writerFullName;
+                                                    }
+
+                                                   
+
+                                                </a>                                             
                                             </td>
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> -   

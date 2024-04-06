@@ -13,6 +13,6 @@ namespace Dictionary.DataAccessLayer.Abstract
     public interface IMessageDal : IGenericRepository<Message>
     {
         List<WriterMessageDto> GetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression);
-        string GetMessageInfoBySenderMail(string senderName);
+        List<WriterMessageDto> GetMessageInfoBySenderMail(Expression<Func<WriterMessageDto, bool>> expression);
     }
 }

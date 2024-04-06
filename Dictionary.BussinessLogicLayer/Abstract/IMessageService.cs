@@ -13,6 +13,6 @@ namespace Dictionary.BussinessLogicLayer.Abstract
     public interface IMessageService : IGenericService<Message>
     {
         List<WriterMessageDto> TGetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression);
-        string TGetMessageInfoBySenderMail(string senderName);
+        List<WriterMessageDto> TGetMessageInfoBySenderMail(Expression<Func<WriterMessageDto, bool>> expression);
     }
 }

@@ -38,10 +38,27 @@ namespace Dictionary.DataAccessLayer.Concrete
             }
         }
 
-        public string GetMessageInfoBySenderMail(string senderName)
-		{
-			var values = _dbDictionaryContext.Messages.ToList().Where(x => x.ReceverMail == senderName).Select(y => y.SenderMail).FirstOrDefault();
-			return values;
+        public List<WriterMessageDto> GetMessageInfoBySenderMail(Expression<Func<WriterMessageDto, bool>> expression)
+        {
+
+			using (DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext())
+			{
+				var query = from message in _dbDictionaryContext.Messages
+							join writer in _dbDictionaryContext.Writers
+							on message.SenderMail equals writer.Email
+							select new WriterMessageDto()
+							{
+								ReceverMail = message.ReceverMail,
+								SenderMail = message.SenderMail,
+								Date = message.Date,
+								FirstName = writer.FirstName,
+								LastName = writer.LastName,
+								Email = writer.Email
+							};
+				query = query.Where(expression);
+				var result = query.ToList();
+				return result;
+			}
 		}
-	}
+    }
 }

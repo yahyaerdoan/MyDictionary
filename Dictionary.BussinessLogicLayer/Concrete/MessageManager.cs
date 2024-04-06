@@ -64,15 +64,15 @@ namespace Dictionary.BussinessLogicLayer.Concrete
             _messageDal.Update(entity);
         }
 
-		public string TGetMessageInfoBySenderMail(string senderName)
-		{
-            var values = _messageDal.GetMessageInfoBySenderMail(senderName);
-            return values;
-		}
-
         public List<WriterMessageDto> TGetMessageInfoByReceverMail(Expression<Func<WriterMessageDto, bool>> expression)
         {
             var values = _messageDal.GetMessageInfoByReceverMail(expression);
+            return values;
+        }
+
+        public List<WriterMessageDto> TGetMessageInfoBySenderMail(Expression<Func<WriterMessageDto, bool>> expression)
+        {
+            var values = _messageDal.GetMessageInfoBySenderMail(expression);
             return values;
         }
     }
