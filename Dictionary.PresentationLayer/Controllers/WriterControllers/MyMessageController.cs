@@ -30,23 +30,18 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
             var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == matchedSessionAndEMail.Email)
             .Select(y => y.FirstName + " " + y.LastName).ToList();
-            ViewBag.receverFullName = receverFullName;
-
-            var values = _messageService.TListByFilter(a => a.ReceverMail == sessionForEMail);         
-            return View(values);
+            var name = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == sessionForEMail);           
+            return View(name);
         }
 
         public ActionResult SentBox()
         {
             string sessionForEMail = (string)Session["Email"];
             var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
-
             var senderFullName = _messageService.TGetMessageInfoByReceverMail(x => x.SenderMail == matchedSessionAndEMail.Email)
                 .Select(y => y.FirstName + " " + y.LastName).ToList();
 
             ViewBag.senderFullName = senderFullName;
-
-
             var values = _messageService.TListByFilter(a => a.SenderMail == sessionForEMail);
             return View(values);
         }

@@ -1,4 +1,4 @@
-﻿@model List<Dictionary.EntityLayer.Concrete.Message>
+﻿@model List<Dictionary.EntityLayer.Dto.WriterMessageDto>
 @{
     ViewBag.Title = "InBox";
     Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
@@ -79,12 +79,12 @@
                                                 <a href="#"><i class="fas fa-star text-warning"></i></a>
                                             </td>
                                             <td class="mailbox-name">
-                                                <a href="/MyMessage/ReadMail/@item.MessageId" class="text-black">
+                                                <a href="/MyMessage/ReadMail/@item.MessageId" class="text-black"> @item.FirstName @item.LastName
 
-                                                    @foreach (var writerFullName in @ViewBag.receverFullName)
+                                                    @*@foreach (var writerFullName in @ViewBag.receverFullName)
                                                     {
                                                         @writerFullName
-                                                    }
+                                                    }*@
 
                                                     @*@ViewBag.receverFullName*@
 

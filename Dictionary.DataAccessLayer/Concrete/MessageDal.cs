@@ -23,6 +23,10 @@ namespace Dictionary.DataAccessLayer.Concrete
 							on message.ReceverMail equals writer.Email
 							select new WriterMessageDto()
 							{
+								MessageId = message.MessageId,
+								Content = message.Content,
+								Status = message.Status,
+								Subject = message.Subject,
 								ReceverMail = message.ReceverMail,
 								SenderMail = message.SenderMail,
 								Date = message.Date,
@@ -46,6 +50,10 @@ namespace Dictionary.DataAccessLayer.Concrete
 							on message.SenderMail equals writer.Email
 							select new WriterMessageDto()
 							{
+								MessageId = message.MessageId,
+								Content = message.Content,
+								Status = message.Status,
+								Subject = message.Subject,
 								ReceverMail = message.ReceverMail,
 								SenderMail = message.SenderMail,
 								Date = message.Date,
