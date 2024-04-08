@@ -27,7 +27,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         public ActionResult InBox()
         {
             string sessionForEMail = (string)Session["Email"];            
-            var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == sessionForEMail);           
+            var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == sessionForEMail);
             return View(receverFullName);
         }
 
