@@ -1,4 +1,5 @@
 ﻿@model List<Dictionary.EntityLayer.Concrete.Content>
+@using System.Text.RegularExpressions
 @{
     ViewBag.Title = "ContentByHeader";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -38,7 +39,15 @@
                             <div class="timeline-body">
                                 <div class="title"> <b>@item.Head.Category.Name</b></div>
                                 <div class="title"> <b class="text-red">@item.Head.Name</b></div>
-                                @item.Purview
+                                @helper StripHTML(string input)
+                                {
+                                    if (!string.IsNullOrEmpty(input))
+                                    {
+                                        input = Regex.Replace(input, "<.*?>", String.Empty);
+                                        <span>@input</span>
+                                    }
+                                }
+                                @Html.Raw(item.Purview)
                             </div>
                             <div class="timeline-footer">
                                 <a href="/ContentAdmin/UpdateContent/@item.ContentId" class="btn btn-primary btn-sm">Update</a>

@@ -1,4 +1,5 @@
 ﻿@model List<Dictionary.EntityLayer.Concrete.Category>
+@using System.Text.RegularExpressions
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -29,7 +30,17 @@
                     <tr>
                         <td class="text-danger">@item.CategoryId</td>
                         <td>@item.Name</td>
-                        <td>@item.Description</td>
+                        <td>
+                          @helper StripHTML(string input)
+                                    {
+                                        if (!string.IsNullOrEmpty(input))
+                                        {
+                                            input = Regex.Replace(input, "<.*?>", String.Empty);
+                                            <span>@input</span>
+                                        }
+                                    }
+                                    @Html.Raw(item.Description)
+                        </td>
                         <td>@item.Status</td>
                         <td>
                             <a href="/CategoryAdmin/UpdateCategory/@item.CategoryId" class="btn btn-outline-primary sm">Update</a>

@@ -38,8 +38,15 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
 			}
 			else
 			{
-                return View("Kullanici adi veya sifre hatali");
+                return RedirectToAction("Index", "LogInAdmin");
             }           
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("HeaderList", "Header");
         }
     }
 }
