@@ -51,7 +51,7 @@ namespace Dictionary.BussinessLogicLayer.Concrete
 
 		public List<Admin> TListByFilter(Expression<Func<Admin, bool>> expression)
 		{
-			throw new NotImplementedException();
+			return _adminDal.ListByFilter(expression);
 		}
 
 		public void TUpdate(Admin entity)

@@ -15,13 +15,10 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
     public class CategoryAdminController : Controller
     {
         // GET: CategoryAdmin
-        ICategoryService _categoriService;
-        IContentService _contentService;
-        
-        public CategoryAdminController(ICategoryService categoriService, IContentService contentService)
+        ICategoryService _categoriService;        
+        public CategoryAdminController(ICategoryService categoriService)
         {
             _categoriService = categoriService;
-            _contentService = contentService;
         }
 
         //CategoryManager _categoryManager = new CategoryManager(new CategoryDal());
@@ -33,7 +30,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "A")]
+        [Authorize(Roles = "A")]
         public ActionResult CreateCategory()
         {
             return View();

@@ -1,0 +1,55 @@
+﻿@model Dictionary.EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card-header">
+        <h3 class="card-title">
+            <b>Update Admin</b>
+        </h3>
+    </div>
+    <div class="tab-pane mt-3" id="settings">
+        <form class="form-horizontal" autocomplete="off" method="post" action="/Admin/UpdateAdmin">
+            <div class="form-group row">
+                <input type="hidden" autocomplete="false" class="form-control" id="" placeholder="user name" name="AdminId" value="@Model.AdminId">
+
+                <label for="" class="col-sm-2 col-form-label">User Name</label>
+                <div class="col-sm-10">
+                    <input type="text" autocomplete="false" class="form-control" id="" placeholder="user name" name="UserName" value="@Model.UserName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" autocomplete="off" class="form-control" id="" placeholder="password" name="Password" value="@Model.Password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Role</label>
+                <div class="col-sm-10">
+                    @*<input type="text" class="form-control" id="" placeholder="role" name="Role" value="@Model.Role">*@    
+                    
+                    <select name="Role" class="form-control">
+                        
+
+                        <option>@Model.Role</option>
+                        <option>select a role</option>
+                        @foreach (var item in ViewBag.RoleName)
+                        {
+                            <option value="@item.Text">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="" placeholder="status" name="Status" value="@Model.Status">
+                </div>
+            </div>
+            <button style="margin-top:0rem" type="submit" class="btn btn-outline-success col-md-12">Update New Admin</button>
+        </form>
+    </div>
+</div>
