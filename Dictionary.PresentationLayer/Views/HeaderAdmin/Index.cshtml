@@ -32,7 +32,7 @@
                         <td class="text-danger">@item.HeadId</td>
                         <td>@item.Name</td>
                         <td>@item.Category.Name</td>
-                        <td>@(((DateTime)item.Date).ToString("dd-MMMM-yyyy"))</td>
+                        <td>@(((DateTime)item.Date).ToString("dd MMM yyyy"))</td>
                         <td>@item.Writer.FirstName @item.Writer.LastName</td>
                         @if (item.Status == true)
                         {
@@ -49,11 +49,11 @@
                         <td>
                             @if (item.Status == true)
                             {
-                            <a href="/HeaderAdmin/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">Turn on</a>
+                            <a href="/HeaderAdmin/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">Off</a>
                             }
                             else
                             {
-                                <a href="/HeaderAdmin/UpdateHeaderAsATrue/@item.HeadId" class="btn btn-outline-success sm">Turn of</a>
+                                <a href="/HeaderAdmin/UpdateHeaderAsATrue/@item.HeadId" class="btn btn-outline-success sm">On</a>
                             }
                         </td>
                         <td>

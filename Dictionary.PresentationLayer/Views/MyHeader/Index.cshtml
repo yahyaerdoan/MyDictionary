@@ -32,7 +32,7 @@
                         <td class="text-danger">@item.HeadId</td>
                         <td>@item.Name</td>
                         <td>@item.Category.Name</td>
-                        <td>@(((DateTime)item.Date).ToString("dd-MMMM-yyyy"))</td>
+                        <td>@(((DateTime)item.Date).ToString("dd MMM yyyy"))</td>
                         <td>@item.Writer.FirstName @item.Writer.LastName</td>
                         @if (item.Status == true)
                         {
@@ -50,11 +50,11 @@
                         <td>
                             @if (item.Status == true)
                             {
-                                <a href="/MyHeader/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">On</a>
+                                <a href="/MyHeader/UpdateHeaderAsAFalse/@item.HeadId" class="btn btn-outline-danger sm">Off</a>
                             }
                             else
                             {
-                                <button class="btn btn-outline-success" type="button" data-target="#exampleModalToggle" data-toggle="modal"> Off</button>
+                                <button class="btn btn-outline-success" type="button" data-target="#exampleModalToggle" data-toggle="modal"> On</button>
                             }
                         </td>
                         <!--#endregion-->

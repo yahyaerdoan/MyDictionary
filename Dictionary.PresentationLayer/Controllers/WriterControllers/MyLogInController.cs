@@ -38,8 +38,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 			}
 			else
 			{
-                return View("hata");
-            }           
+                return RedirectToAction("Index", "MyLogIn");
+            }
         }
 
         public ActionResult SignOut()
