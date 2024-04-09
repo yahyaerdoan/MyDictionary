@@ -25,8 +25,8 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
         public PartialViewResult AdminSideBarPartial()
         {
-            string sessionForUserName = (string)Session["UserName"];
-            var values = _adminService.TListByFilter(a => a.UserName == sessionForUserName);
+            string sessionForUserName = (string)Session["Email"];
+            var values = _adminService.TListByFilter(a => a.Email == sessionForUserName);
             return PartialView(values);
         }
 

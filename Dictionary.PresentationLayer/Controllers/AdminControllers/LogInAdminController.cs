@@ -29,11 +29,11 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            var values = _adminService.TGetByIdWithFilter(a => a.UserName == admin.UserName && a.Password == admin.Password);
+            var values = _adminService.TGetByIdWithFilter(a => a.Email == admin.Email && a.Password == admin.Password);
 			if (values != null)
 			{
-                FormsAuthentication.SetAuthCookie(values.UserName, false);
-                Session["UserName"] = values.UserName;
+                FormsAuthentication.SetAuthCookie(values.Email, false);
+                Session["Email"] = values.Email;
                 return RedirectToAction("Index", "CategoryAdmin");
 			}
 			else

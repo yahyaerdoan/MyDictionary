@@ -19,10 +19,10 @@ namespace Dictionary.DataAccessLayer.Concrete
             using (DbDictionaryContext _dbDictionaryContext = new DbDictionaryContext())
             {
 				var query = from message in _dbDictionaryContext.Messages
-							join writer in _dbDictionaryContext.Writers
-							on message.ReceverMail equals writer.Email
+							join writer in _dbDictionaryContext.Writers							
+							on message.ReceverMail equals writer.Email							
 							select new WriterMessageDto()
-							{
+							{								
 								MessageId = message.MessageId,
 								Content = message.Content,
 								Status = message.Status,
@@ -47,9 +47,9 @@ namespace Dictionary.DataAccessLayer.Concrete
 			{
 				var query = from message in _dbDictionaryContext.Messages
 							join writer in _dbDictionaryContext.Writers
-							on message.SenderMail equals writer.Email
+							on message.SenderMail equals writer.Email						
 							select new WriterMessageDto()
-							{
+							{								
 								MessageId = message.MessageId,
 								Content = message.Content,
 								Status = message.Status,

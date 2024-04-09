@@ -16,18 +16,25 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         {
             _messageService = messageService;
         }
+        //public string GetUserNameFromSession()
+        //{
+        //    var values =  (string)Session["UserName"];
+        //    return values;
+        //}
 
         // GET: MessageAdmin
         public ActionResult Index()
         {
-            var values = _messageService.TListByFilter(a=> a.ReceverMail == "yahyajohn@gmail.com");
-            return View(values);
+            string getUserNameFromSession = (string)Session["Email"];
+            var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == getUserNameFromSession);
+            return View(receverFullName);
         }
 
         public ActionResult SentBox()
         {
-            var values = _messageService.TListByFilter(a => a.SenderMail == "yahyajohn@gmail.com");
-            return View(values);
+            string getUserNameFromSession = (string)Session["Email"];
+            var senderFullName = _messageService.TGetMessageInfoByReceverMail(x => x.SenderMail == getUserNameFromSession);
+            return View(senderFullName);
         }
 
         public ActionResult ReadMail(int id)
@@ -46,7 +53,8 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         [ValidateInput(false)]
         public ActionResult CreateMessage(Message message)
         {
-            message.SenderMail = "yahyajohn@gmail.com";
+            string getUserNameFromSession = (string)Session["Email"];
+            message.SenderMail = getUserNameFromSession;
             message.Status = true;
             message.Date = DateTime.Now;
             _messageService.TAdd(message);

@@ -29,11 +29,7 @@
             <div class="form-group row">
                 <label for="" class="col-sm-2 col-form-label">Role</label>
                 <div class="col-sm-10">
-                    @*<input type="text" class="form-control" id="" placeholder="role" name="Role" value="@Model.Role">*@    
-                    
                     <select name="Role" class="form-control">
-                        
-
                         <option>@Model.Role</option>
                         <option>select a role</option>
                         @foreach (var item in ViewBag.RoleName)

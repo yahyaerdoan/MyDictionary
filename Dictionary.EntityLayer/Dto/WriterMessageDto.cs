@@ -8,6 +8,11 @@ namespace Dictionary.EntityLayer.Dto
 {
     public class WriterMessageDto
     {
+        // for admin table
+        public int AdminId { get; set; }
+        public string UserName { get; set; }
+        public string AdminEmail { get; set; }
+
         // for writer table
         public int MessageId { get; set; }
         public string SenderMail { get; set; }

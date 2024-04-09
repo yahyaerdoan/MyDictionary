@@ -1,4 +1,4 @@
-﻿@model List<Dictionary.EntityLayer.Concrete.Message>
+﻿@model List<Dictionary.EntityLayer.Dto.WriterMessageDto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -79,10 +79,18 @@
                                                 <a href="#"><i class="fas fa-star text-warning"></i></a>
                                             </td>
                                             <td class="mailbox-name">
-                                                <a href="/MessageAdmin/ReadMail/@item.MessageId">@item.SenderMail</a>
+                                                <a href="/MessageAdmin/ReadMail/@item.MessageId">@item.FirstName @item.LastName</a>
                                             </td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> - @item.Content.Substring(0, 70)...
+                                                <b>@item.Subject</b> -  
+                                                @if (item.Content.Length >= 60)
+                                                {
+                                                    <span>@item.Content.Substring(0, 60) ...</span>
+                                                }
+                                                else
+                                                {
+                                                    @item.Content
+                                                }
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">@item.Date.ToString("dd MMM yyyy hh : mm tt")</td>

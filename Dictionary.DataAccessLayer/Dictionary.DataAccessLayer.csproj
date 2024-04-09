@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202403270026214_addAdminTable.designer.cs">
       <DependentUpon>202403270026214_addAdminTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404092027432_addedEmailForAdmin.cs" />
+    <Compile Include="Migrations\202404092027432_addedEmailForAdmin.designer.cs">
+      <DependentUpon>202404092027432_addedEmailForAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403270026214_addAdminTable.resx">
       <DependentUpon>202403270026214_addAdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404092027432_addedEmailForAdmin.resx">
+      <DependentUpon>202404092027432_addedEmailForAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
