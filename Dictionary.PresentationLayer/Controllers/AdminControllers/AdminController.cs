@@ -52,8 +52,7 @@ namespace Dictionary.PresentationLayer.Controllers.AdminControllers
         }
         [HttpPost]
         public ActionResult UpdateAdmin(Admin admin)
-        {
-           
+        {          
             _adminService.TUpdate(admin);
 ;            return RedirectToAction("Index", "Admin");
         }
