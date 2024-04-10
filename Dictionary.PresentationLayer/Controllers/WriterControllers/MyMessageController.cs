@@ -22,6 +22,7 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         {
             return PartialView();
         }
+
         public ActionResult InBox()
         {
             var session = SessionHelper.GetSessionIformation(Session);
