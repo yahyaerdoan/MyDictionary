@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.SessionHelper;
 using Dictionary.EntityLayer.Concrete;
 using PagedList;
 using System;
@@ -23,15 +24,16 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 			_categoryService = categoryService;
 			_writerService = writerService;
 		}
-		private void GetCategoryNameForDropDownBySelectList()
+
+        private void GetCategoryNameForDropDownBySelectList()
         {
             ViewBag.CategoryName = new SelectList(_categoryService.TGetAllList(), "CategoryId", "Name");
         }
 
         public ActionResult Index()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             var values = _headService.TListByFilter(a=> a.WriterId == matchedEmailAndWriterId);
             return View(values);
@@ -53,8 +55,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 		[HttpPost]
         public ActionResult CreateHeader(Head head)
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             head.WriterId = matchedEmailAndWriterId;
             head.Date = DateTime.Now;
@@ -81,8 +83,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [HttpPost]
         public ActionResult UpdateHeader(Head head)
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             head.WriterId = matchedEmailAndWriterId;
             head.Date = DateTime.Now;
