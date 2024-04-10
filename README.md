@@ -1,4 +1,27 @@
+# My Dictionary
+## 
+Completed this project M&Y Yazılım Eğitim Akademi Danışmanlık and by Murat Yücedağ training. Contribution through homework and strengthened my knowledge.
+- This project consists of 3 parts. These are admin, writer and display panels.
+- Developed my project with N-tier layered architecture and generic repository design pattern.
+- The classes independent using the dependency injection technique. Thus, we created a method-based and secure structure.
+- Session management was carried out with Session. Method-based access was provided using the Abstract class. Code duplication is avoided.
+- Rules were written for entity properties with Fluent validation.
+- The paging system has been developed.
+- CkEditor and Summernote editor were used for user-friendly texts. The texts were edited with Strip html helper and displayed to the user.
+- Messaging system was developed. The sender and receiver's data were shown in the list with the inner join process. In order for this structure to work correctly, the Dto structure was developed.
 
+## Technologies:
+- C#
+- Asp .NET Framework
+- Mvc
+- N-Tier Architecture
+- Generic Repository Design
+- Dependency Injection
+- Fluent Validation
+- Summernote Editor
+- CKEditor
+- Strip Html Helper
+- Pagging
 <img width="1280" alt="28" src="https://github.com/yahyaerdoan/MyDictionary/assets/77584301/9bea5ee3-49a6-4920-9f8c-f187356fc364">
 <img width="1280" alt="27" src="https://github.com/yahyaerdoan/MyDictionary/assets/77584301/8aadd69a-44e7-4d15-a28b-a08d8281cd5f">
 <img width="1280" alt="26" src="https://github.com/yahyaerdoan/MyDictionary/assets/77584301/e14a84f5-4300-4473-a6df-1a7089e503bd">
