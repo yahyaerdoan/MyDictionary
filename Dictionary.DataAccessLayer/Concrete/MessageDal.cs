@@ -34,7 +34,7 @@ namespace Dictionary.DataAccessLayer.Concrete
 								LastName = writer.LastName,
 								Email = writer.Email
 							};
-				query = query.Where(expression);
+				query = query.Where(expression).OrderByDescending(x=> x.Date);
 				var result = query.ToList();
 				return result;
             }
@@ -61,7 +61,7 @@ namespace Dictionary.DataAccessLayer.Concrete
 								LastName = writer.LastName,
 								Email = writer.Email
 							};
-				query = query.Where(expression);
+				query = query.Where(expression).OrderByDescending(x => x.Date);
 				var result = query.ToList();
 				return result;
 			}
