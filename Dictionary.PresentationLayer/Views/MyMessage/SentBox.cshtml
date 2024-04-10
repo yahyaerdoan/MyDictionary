@@ -1,4 +1,5 @@
 ﻿@model List<Dictionary.EntityLayer.Dto.WriterMessageDto>
+@using System.Text.RegularExpressions
 @{
     ViewBag.Title = "SentBox";
     Layout = "~/Views/Shared/_WriterPanelLayout.cshtml";
@@ -86,13 +87,22 @@
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> -
 
-                                                @if (item.Content.Length >= 60)
+                                                @if (item.Content.Length >= 80)
                                                 {
-                                                    <span>@item.Content.Substring(0, 60) ...</span>
+                                                    @helper StripHTML(string input)
+                                                    {
+                                                        if (!string.IsNullOrEmpty(input))
+                                                        {
+                                                            input = Regex.Replace(input, "<.*?>", String.Empty);
+                                                            <span>@input.Substring(0, Math.Min(input.Length, 80))</span>
+                                                        }
+                                                    }
+                                                    <span>@StripHTML(item.Content)...</span>
+
                                                 }
                                                 else
                                                 {
-                                                    @item.Content
+                                                    @StripHTML(item.Content)
                                                 }
 
                                             </td>

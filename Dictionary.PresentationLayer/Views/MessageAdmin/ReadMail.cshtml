@@ -1,4 +1,5 @@
 ﻿@model  Dictionary.EntityLayer.Concrete.Message
+                                    @using System.Text.RegularExpressions
 @{
     ViewBag.Title = "ReadMail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -53,9 +54,16 @@
                             </button>
                         </div>
                         <div class="mailbox-read-message">
-                            <p>@Model.Content</p>
-                        </div>
-                    </div>
+                            @helper StripHTML(string input)
+                            {
+                                if (!string.IsNullOrEmpty(input))
+                                {
+                                    input = Regex.Replace(input, "<.*?>", String.Empty);
+                                    <span>@input</span>
+                                }
+                            }
+                            @Html.Raw(Model.Content)
+                        </div> 
                     <div class="card-footer bg-white">
                         <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
                             <li>

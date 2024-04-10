@@ -103,7 +103,8 @@
             </div>
         </div>
         <footer class="main-footer">
-            <strong>Copyright &copy; 2021-<script>document.write(new Date().getFullYear())</script> Yahya John Erdogan</strong>      
+            <strong>Copyright &copy; 2021-
+            <script>document.write(new Date().getFullYear())</script> Yahya John Erdogan</strong>
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> Asp.Net Framework Mvc
             </div>
@@ -117,10 +118,17 @@
     <script src="~/Template/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="~/Template/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
-    
+
     <script src="~/Template/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
     <script src="~/Template/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote().noConflict;
+        })
+    </script>
 </body>
 </html>
