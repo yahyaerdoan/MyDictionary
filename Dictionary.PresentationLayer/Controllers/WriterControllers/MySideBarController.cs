@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.SessionHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         // GET: MySideBar
         public PartialViewResult IndexPartial()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var values = _writerService.TListByFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var values = _writerService.TListByFilter(a => a.Email == session);
             return PartialView(values);
         }
     }

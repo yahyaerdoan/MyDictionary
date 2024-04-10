@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.SessionHelper;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,9 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
     public class MyMessageController : Controller
     {
         private readonly IMessageService _messageService;
-        private readonly IWriterService _writerService;
-
-		public MyMessageController(IMessageService messageService, IWriterService writerService)
+		public MyMessageController(IMessageService messageService)
 		{
 			_messageService = messageService;
-			_writerService = writerService;
 		}
 
 		// GET: MyMessage
@@ -26,15 +24,15 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         }
         public ActionResult InBox()
         {
-            string sessionForEMail = (string)Session["Email"];            
-            var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var receverFullName = _messageService.TGetMessageInfoBySenderMail(x => x.ReceverMail == session);
             return View(receverFullName);
         }
 
         public ActionResult SentBox()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var senderFullName = _messageService.TGetMessageInfoByReceverMail(x => x.SenderMail == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var senderFullName = _messageService.TGetMessageInfoByReceverMail(x => x.SenderMail == session);
             return View(senderFullName);
         }
 
@@ -54,8 +52,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [ValidateInput(false)]
         public ActionResult CreateMessage(Message message)
         {
-            string sessionForEMail = (string)Session["Email"];
-            message.SenderMail = sessionForEMail;
+            var session = SessionHelper.GetSessionIformation(Session);
+            message.SenderMail = session;
             message.Status = true;
             message.Date = DateTime.Now;
             _messageService.TAdd(message);

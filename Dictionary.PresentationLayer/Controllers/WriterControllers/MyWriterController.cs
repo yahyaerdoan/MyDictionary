@@ -1,4 +1,5 @@
 ﻿using Dictionary.BussinessLogicLayer.Abstract;
+using Dictionary.BussinessLogicLayer.SessionHelper;
 using Dictionary.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -25,22 +26,22 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
 
         public PartialViewResult MyProfilePartial()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var values = _writerService.TListByFilter(a => a.Email == sessionForEMail);         
+            var session = SessionHelper.GetSessionIformation(Session);
+            var values = _writerService.TListByFilter(a => a.Email == session);         
             return PartialView(values);
         }
 
         public PartialViewResult MyAboutMePartial()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var values = _writerService.TListByFilter(a => a.Email == sessionForEMail);          
+            var session = SessionHelper.GetSessionIformation(Session);
+            var values = _writerService.TListByFilter(a => a.Email == session);          
             return PartialView(values);
         }
 
         public PartialViewResult MyAtsPartial()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             var values = _writerService.TGetById(matchedEmailAndWriterId);
             return PartialView(values);
@@ -49,8 +50,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [HttpGet]
         public PartialViewResult MyAtSettingPartial()
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             var values = _writerService.TGetById(matchedEmailAndWriterId);
             return PartialView(values);
@@ -58,8 +59,8 @@ namespace Dictionary.PresentationLayer.Controllers.WriterControllers
         [HttpPost]
         public PartialViewResult MyAtSettingPartial(Writer writer)
         {
-            string sessionForEMail = (string)Session["Email"];
-            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == sessionForEMail);
+            var session = SessionHelper.GetSessionIformation(Session);
+            var matchedSessionAndEMail = _writerService.TGetByIdWithFilter(a => a.Email == session);
             var matchedEmailAndWriterId = (matchedSessionAndEMail.WriterId);
             writer.WriterId = matchedEmailAndWriterId;
             writer.Date = DateTime.Now;
